@@ -3,6 +3,8 @@
 import { useState, useCallback, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import CentralAvatar from "./CentralAvatar";
+import CodeRainBackground from "./CodeRainBackground";
+import TerminalTypewriter from "./TerminalTypewriter";
 import { identity } from "@/config/portfolio";
 
 interface IntroGateProps {
@@ -73,12 +75,14 @@ export default function IntroGate({ onEnter }: IntroGateProps) {
     <AnimatePresence>
       {!isExiting && (
         <motion.div
-          className="fixed inset-0 z-50 flex flex-col items-center justify-center"
+          className="fixed inset-0 z-50 flex flex-col items-center justify-center overflow-hidden"
           style={{ background: "#050508" }}
           exit={{ opacity: 0, scale: 1.1 }}
           transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
         >
-          {/* Ambient gradient */}
+          {/* Layer 1: Base dark background — via style above */}
+
+          {/* Layer 2: Ambient radial gradient */}
           <div
             className="absolute inset-0 pointer-events-none"
             style={{
@@ -87,11 +91,36 @@ export default function IntroGate({ onEnter }: IntroGateProps) {
             }}
           />
 
-          {/* Scan line effect during loading */}
+          {/* Layer 3: Code rain background */}
+          <motion.div
+            className="absolute inset-0 pointer-events-none"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 2, delay: 0.5 }}
+          >
+            <CodeRainBackground 
+              intensity={isHovering ? 0.45 : 0.3}
+            />
+          </motion.div>
+
+          {/* Layer 4: Subtle grid overlay for terminal feel */}
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{
+              backgroundImage: `
+                linear-gradient(rgba(139, 92, 246, 0.015) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(139, 92, 246, 0.015) 1px, transparent 1px)
+              `,
+              backgroundSize: "40px 40px",
+              opacity: 0.6,
+            }}
+          />
+
+          {/* Layer 4b: Scan line effect during loading */}
           {isHovering && (
             <div
               className="absolute inset-0 pointer-events-none overflow-hidden"
-              style={{ opacity: 0.3 }}
+              style={{ opacity: 0.25 }}
             >
               <div
                 className="absolute w-full h-px bg-gradient-to-r from-transparent via-violet-500 to-transparent"
@@ -100,7 +129,7 @@ export default function IntroGate({ onEnter }: IntroGateProps) {
             </div>
           )}
 
-          {/* Content */}
+          {/* Layer 5-7: Content (Avatar, Text, Button) */}
           <motion.div
             className="relative z-10 flex flex-col items-center gap-8 px-6"
             initial={{ opacity: 0, y: 30 }}
@@ -124,14 +153,14 @@ export default function IntroGate({ onEnter }: IntroGateProps) {
 
             {/* Identity */}
             <div className="text-center space-y-3">
-              <motion.p
-                className="font-mono text-sm tracking-[0.3em] uppercase text-violet-400/80"
+              <motion.div
+                className="font-mono text-sm tracking-[0.3em] uppercase text-violet-400/80 h-[1.4em]"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.8 }}
               >
-                Initializing
-              </motion.p>
+                <TerminalTypewriter />
+              </motion.div>
               <motion.h1
                 className="text-4xl md:text-6xl font-bold tracking-tight"
                 initial={{ opacity: 0 }}
@@ -245,7 +274,7 @@ export default function IntroGate({ onEnter }: IntroGateProps) {
                     {isComplete ? "Ready" : "Load"}
                   </span>
                   <span className="font-mono text-xs text-violet-400 tracking-wider">
-                    {isComplete ? "✓" : `${Math.round(progress)}%`}
+                    {isComplete ? "OK" : `${Math.round(progress)}%`}
                   </span>
                 </div>
               </button>
@@ -266,6 +295,18 @@ export default function IntroGate({ onEnter }: IntroGateProps) {
           </div>
           <div className="absolute bottom-6 right-6 text-text-muted/30 font-mono text-xs hidden md:block">
             <div>STATUS: {isComplete ? "READY" : isHovering ? "LOADING" : "STANDBY"}</div>
+          </div>
+
+          {/* Bottom-left corner — session info */}
+          <div className="absolute bottom-6 left-6 text-text-muted/20 font-mono text-[10px] hidden md:block leading-relaxed">
+            <div>SESSION: {mounted ? "ACTIVE" : "..."}</div>
+            <div>RENDER: CLIENT</div>
+          </div>
+          
+          {/* Top-right corner — timestamp-style */}
+          <div className="absolute top-6 right-6 text-text-muted/20 font-mono text-[10px] hidden md:block text-right leading-relaxed">
+            <div>NODE: MAIN</div>
+            <div>PROTOCOL: HTTPS</div>
           </div>
         </motion.div>
       )}

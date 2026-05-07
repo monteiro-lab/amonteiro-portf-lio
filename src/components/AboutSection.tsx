@@ -2,6 +2,7 @@
 
 import SectionReveal from "./SectionReveal";
 import { identity } from "@/config/portfolio";
+import Image from "next/image";
 
 export default function AboutSection() {
   return (
@@ -13,7 +14,7 @@ export default function AboutSection() {
               // Identity
             </p>
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              <span className="text-gradient">About Arthur</span>
+              <span className="text-gradient">About Me</span>
             </h2>
           </div>
         </SectionReveal>
@@ -29,10 +30,31 @@ export default function AboutSection() {
               }}
             />
 
-            <div className="relative z-10 space-y-6">
-              <p className="text-lg md:text-xl text-text-primary leading-relaxed">
-                {identity.shortBio}
-              </p>
+            <div className="relative z-10 space-y-8">
+              <div className="flex flex-col sm:flex-row gap-6 md:gap-8 items-start">
+                <div className="relative shrink-0 group cursor-default">
+                  {/* Subtle outer glow */}
+                  <div className="absolute inset-0 rounded-2xl bg-violet-500/10 blur-xl group-hover:bg-violet-500/20 transition-colors duration-500" />
+                  
+                  {/* Profile Chip */}
+                  <div className="relative w-16 h-16 md:w-20 md:h-20 rounded-2xl overflow-hidden border border-white/10 bg-[#0a0a0f] shadow-[0_4px_20px_rgba(0,0,0,0.5)]">
+                    {/* Glass glare */}
+                    <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent z-20 pointer-events-none" />
+                    
+                    <Image 
+                      src="/images/arthur-profile-office.jpg" 
+                      alt="Arthur Monteiro" 
+                      fill
+                      sizes="(max-width: 768px) 64px, 80px"
+                      className="object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                    />
+                  </div>
+                </div>
+
+                <p className="text-lg md:text-xl text-text-primary leading-relaxed flex-1">
+                  {identity.shortBio}
+                </p>
+              </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6 border-t border-white/[0.04]">
                 <div className="space-y-2">

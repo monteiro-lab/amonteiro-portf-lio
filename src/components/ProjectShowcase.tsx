@@ -19,14 +19,14 @@ export default function ProjectShowcase() {
         <SectionReveal>
           <div className="text-center mb-16">
             <p className="font-mono text-xs tracking-[0.3em] uppercase text-violet-400/80 mb-3">
-              // Project Lab
+              // Projects
             </p>
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              <span className="text-gradient">Featured Builds</span>
+              <span className="text-gradient">Selected Work</span>
             </h2>
-            <p className="text-text-secondary max-w-xl mx-auto">
-              Systems built to solve real problems — from financial tracking and
-              AI scheduling to government-scale platforms.
+            <p className="text-text-secondary max-w-lg mx-auto">
+              Real systems built for real use — financial tracking, AI scheduling,
+              government platforms, and data tools.
             </p>
           </div>
         </SectionReveal>
@@ -36,7 +36,7 @@ export default function ProjectShowcase() {
           {/* Vertical continuous scroll rail */}
           <div className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-violet-500/0 via-violet-500/20 to-blue-500/0" />
           
-          <div className="flex flex-col gap-16 md:gap-24">
+          <div className="flex flex-col gap-12 md:gap-20">
             {displayed.map((project, i) => (
               <div 
                 key={project.id} 
@@ -44,7 +44,7 @@ export default function ProjectShowcase() {
               >
                 {/* Connection node to the scroll rail */}
                 <div className="absolute top-8 -left-4 md:-left-12 w-8 md:w-12 h-px bg-violet-500/20">
-                  <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 w-2 h-2 rounded-full border border-violet-500 bg-background" />
+                  <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 w-2 h-2 rounded-full border border-violet-500 bg-bg-primary" />
                 </div>
                 <GlowCard project={project} index={i} />
               </div>
@@ -60,7 +60,7 @@ export default function ProjectShowcase() {
                 onClick={() => setShowAll(true)}
                 className="font-mono text-sm text-text-muted hover:text-violet-400 border border-white/[0.06] hover:border-violet-500/30 px-6 py-3 rounded-full transition-all duration-300 cursor-pointer"
               >
-                View All {projects.length} Projects →
+                View All {projects.length} Projects
               </button>
             </div>
           </SectionReveal>

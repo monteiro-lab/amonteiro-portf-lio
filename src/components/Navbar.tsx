@@ -70,11 +70,20 @@ export default function Navbar() {
                   {isActive && (
                     <motion.div
                       layoutId="nav-active"
-                      className="absolute inset-0 bg-white/[0.06] rounded-full border border-white/[0.08]"
-                      transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                      className="absolute inset-0 bg-white/[0.10] rounded-full border border-white/[0.12]"
+                      transition={{ type: "spring", stiffness: 300, damping: 30 }}
                     />
                   )}
-                  <span className="relative z-10">{item.label}</span>
+                  <span className="relative z-10 flex items-center gap-1.5">
+                    {isActive && (
+                      <motion.span
+                        className="w-1.5 h-1.5 rounded-full bg-violet-400"
+                        layoutId="nav-dot"
+                        transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                      />
+                    )}
+                    {item.label}
+                  </span>
                 </a>
               );
             })}
@@ -82,7 +91,7 @@ export default function Navbar() {
 
           {/* Mobile hamburger */}
           <button
-            className="md:hidden flex flex-col gap-1.5 p-2"
+            className="md:hidden flex flex-col gap-1.5 p-2 cursor-pointer"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
           >
@@ -115,19 +124,28 @@ export default function Navbar() {
             exit={{ opacity: 0 }}
           >
             <div className="flex flex-col items-center gap-6">
-              {navItems.map((item, i) => (
-                <motion.a
-                  key={item.href}
-                  href={item.href}
-                  onClick={() => setMobileOpen(false)}
-                  className="text-2xl font-medium text-text-secondary hover:text-white transition-colors"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.08 }}
-                >
-                  {item.label}
-                </motion.a>
-              ))}
+              {navItems.map((item, i) => {
+                const section = item.href.replace("#", "");
+                const isActive = activeSection === section;
+                return (
+                  <motion.a
+                    key={item.href}
+                    href={item.href}
+                    onClick={() => setMobileOpen(false)}
+                    className={`text-2xl font-medium transition-colors flex items-center gap-3 ${
+                      isActive ? "text-white" : "text-text-secondary hover:text-white"
+                    }`}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: i * 0.06 }}
+                  >
+                    {isActive && (
+                      <span className="w-2 h-2 rounded-full bg-violet-400" />
+                    )}
+                    {item.label}
+                  </motion.a>
+                );
+              })}
             </div>
           </motion.div>
         )}
@@ -155,9 +173,10 @@ function ScrollProgress() {
 
   return (
     <div className="fixed top-0 left-0 right-0 z-50 h-[2px]">
-      <div
-        className="h-full bg-gradient-to-r from-violet-600 via-blue-500 to-cyan-400 transition-all duration-150"
+      <motion.div
+        className="h-full bg-gradient-to-r from-violet-600 via-blue-500 to-cyan-400"
         style={{ width: `${progress}%` }}
+        transition={{ duration: 0.1, ease: "linear" }}
       />
     </div>
   );

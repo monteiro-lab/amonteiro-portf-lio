@@ -3,7 +3,7 @@
 import { useRef, MouseEvent } from "react";
 import { motion } from "framer-motion";
 import * as Icons from "lucide-react";
-import { GithubIcon } from "./icons";
+import { ExternalLink } from "lucide-react";
 import { Project } from "@/config/portfolio";
 
 interface GlowCardProps {
@@ -11,8 +11,20 @@ interface GlowCardProps {
   index: number;
 }
 
+// Map categories to accent colors for visual identity
+const CATEGORY_COLORS: Record<string, string> = {
+  "Data & Finance": "#3b82f6",
+  "AI & Automation": "#8b5cf6",
+  "Enterprise Systems": "#10b981",
+  "Data & Dashboards": "#06b6d4",
+  "Data & Automation": "#06b6d4",
+  "Data Visualization": "#3b82f6",
+  "Tools & Automation": "#f59e0b",
+};
+
 export default function GlowCard({ project, index }: GlowCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
+  const accentColor = CATEGORY_COLORS[project.category] || "#8b5cf6";
 
   const handleMouseMove = (e: MouseEvent) => {
     const card = cardRef.current;
@@ -27,93 +39,110 @@ export default function GlowCard({ project, index }: GlowCardProps) {
   // Dynamically resolve the Lucide icon
   const IconComponent = Icons[project.icon as keyof typeof Icons] as React.ElementType;
 
+  const maxVisibleTech = 4;
+  const visibleTech = project.tech.slice(0, maxVisibleTech);
+  const overflowCount = project.tech.length - maxVisibleTech;
+
   return (
     <motion.div
       ref={cardRef}
-      className="group relative rounded-2xl overflow-hidden cursor-pointer"
+      className="group relative rounded-2xl overflow-hidden"
       onMouseMove={handleMouseMove}
-      initial={{ opacity: 0, y: 80, scale: 0.95 }}
+      initial={{ opacity: 0, y: 50, scale: 0.97 }}
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.8, delay: index * 0.1, type: "spring", bounce: 0.3 }}
-      whileHover={{ y: -4 }}
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{ duration: 0.7, delay: index * 0.08, type: "spring", damping: 25, stiffness: 200 }}
+      whileHover={{ y: -3 }}
     >
       {/* Glow effect on hover */}
       <div
         className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"
         style={{
           background:
-            "radial-gradient(400px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(139, 92, 246, 0.12), transparent 60%)",
+            `radial-gradient(350px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), ${accentColor}18, transparent 60%)`,
         }}
       />
 
       {/* Card content */}
-      <div className="relative glass rounded-2xl p-6 md:p-8 h-full flex flex-col group-hover:border-violet-500/20 transition-colors duration-500">
-        {/* Header */}
-        <div className="flex items-start justify-between mb-4">
-          <div className="flex items-center gap-3">
-            <div className="text-violet-400 group-hover:text-cyan-400 transition-colors duration-300">
-              {IconComponent ? <IconComponent size={24} /> : <Icons.Folder size={24} />}
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold text-white group-hover:text-gradient transition-all duration-300">
-                {project.name}
-              </h3>
-              <span className="text-xs font-mono text-text-muted uppercase tracking-wider">
-                {project.category}
-              </span>
+      <div className="relative glass rounded-2xl h-full flex flex-col group-hover:border-violet-500/20 transition-colors duration-500 overflow-hidden">
+        {/* Top accent gradient stripe */}
+        <div
+          className="h-[2px] w-full"
+          style={{
+            background: `linear-gradient(90deg, transparent, ${accentColor}60, ${accentColor}30, transparent)`,
+          }}
+        />
+
+        <div className="p-6 md:p-8 flex flex-col flex-1">
+          {/* Header */}
+          <div className="flex items-start justify-between mb-5">
+            <div className="flex items-center gap-3">
+              {/* Icon pill with category color */}
+              <div
+                className="w-10 h-10 rounded-xl flex items-center justify-center transition-colors duration-300 flex-shrink-0"
+                style={{
+                  backgroundColor: `${accentColor}15`,
+                  border: `1px solid ${accentColor}30`,
+                }}
+              >
+                <div
+                  className="group-hover:scale-110 transition-transform duration-300"
+                  style={{ color: accentColor }}
+                >
+                  {IconComponent ? <IconComponent size={20} /> : <Icons.Folder size={20} />}
+                </div>
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold text-white leading-tight">
+                  {project.name}
+                </h3>
+                <span className="text-[11px] font-mono text-text-muted uppercase tracking-wider">
+                  {project.category}
+                </span>
+              </div>
             </div>
           </div>
-          <a
-            href={project.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="p-2 rounded-lg hover:bg-white/5 text-text-muted hover:text-white transition-all"
-            aria-label={`View ${project.name} on GitHub`}
-          >
-            <GithubIcon className="w-4 h-4" />
-          </a>
-        </div>
 
-        {/* Description */}
-        <p className="text-text-secondary text-sm leading-relaxed mb-4 flex-1">
-          {project.description}
-        </p>
+          {/* Description */}
+          <p className="text-text-secondary text-sm leading-relaxed mb-5 flex-1">
+            {project.description}
+          </p>
 
-        {/* Why it matters */}
-        <p className="text-xs text-violet-400/60 italic mb-4">
-          {project.longDescription.split(".")[0]}.
-        </p>
+          {/* Tech stack badges */}
+          <div className="flex flex-wrap gap-1.5 mb-5">
+            {visibleTech.map((tech) => (
+              <span
+                key={tech}
+                className="px-2.5 py-1 rounded-md text-[11px] font-mono bg-white/[0.04] border border-white/[0.06] text-text-secondary group-hover:border-violet-500/15 group-hover:text-violet-300/80 transition-all duration-300"
+              >
+                {tech}
+              </span>
+            ))}
+            {overflowCount > 0 && (
+              <span className="px-2.5 py-1 rounded-md text-[11px] font-mono text-text-muted">
+                +{overflowCount}
+              </span>
+            )}
+          </div>
 
-        {/* Tech stack badges */}
-        <div className="flex flex-wrap gap-2 mb-5">
-          {project.tech.map((tech) => (
-            <span
-              key={tech}
-              className="px-2.5 py-1 rounded-md text-xs font-mono bg-white/[0.04] border border-white/[0.06] text-text-secondary group-hover:border-violet-500/20 group-hover:text-violet-300/80 transition-all duration-300"
+          {/* Footer */}
+          <div className="flex items-center justify-between pt-4 border-t border-white/[0.04]">
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-xs text-text-muted hover:text-violet-400 transition-colors font-mono group/link"
             >
-              {tech}
-            </span>
-          ))}
-        </div>
-
-        {/* Footer actions */}
-        <div className="flex items-center justify-between pt-4 border-t border-white/[0.04]">
-          <a
-            href={project.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 text-xs text-text-muted hover:text-violet-400 transition-colors font-mono"
-          >
-            <ExternalLink className="w-3 h-3" />
-            View Source
-          </a>
-          {project.featured && (
-            <span className="flex items-center gap-1.5 text-xs font-mono text-emerald-400/70">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-              Featured
-            </span>
-          )}
+              <ExternalLink className="w-3 h-3 group-hover/link:translate-x-0.5 transition-transform duration-200" />
+              View Source
+            </a>
+            {project.featured && (
+              <span className="flex items-center gap-1.5 text-[11px] font-mono text-emerald-400/70">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                Featured
+              </span>
+            )}
+          </div>
         </div>
       </div>
     </motion.div>

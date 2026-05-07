@@ -19,11 +19,10 @@ export default function GitHubSection() {
               // Open Source
             </p>
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              <span className="text-gradient">GitHub Lab</span>
+              <span className="text-gradient">Source Code</span>
             </h2>
             <p className="text-text-secondary max-w-xl mx-auto">
-              Explore the source code, contribute, or fork — everything is built
-              in the open.
+              All projects are open source. Explore, fork, or contribute.
             </p>
           </div>
         </SectionReveal>

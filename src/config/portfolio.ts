@@ -2,11 +2,12 @@ export const identity = {
   name: "Arthur Monteiro",
   handle: "monteiro-lab",
   title: "Full-Stack Developer",
-  tagline: "Building intelligent systems, dashboards, automations, and AI-powered web applications.",
+  tagline: "Full-stack systems, data dashboards, AI integrations, and cloud-native infrastructure.",
   shortBio:
-    "I architect and build full-stack web systems — from data dashboards and AI-assisted scheduling to government-scale complaint platforms and financial tracking tools. My work lives at the intersection of Python, modern web frameworks, and practical AI integration.",
+    "Full-stack developer focused on Python backends, modern frontends, and practical AI integration. Past work includes financial dashboards, AI-assisted scheduling, government-scale complaint platforms, and containerized enterprise systems.",
   github: "https://github.com/monteiro-lab",
-  email: "contact@arthurmonteiro.dev",
+  email: "arthurmm122@gmail.com",
+  linkedin: "https://www.linkedin.com/in/arthur-monteiro-9236a4207/",
 };
 
 export interface Project {
@@ -301,7 +302,7 @@ export const navItems = [
 ];
 
 export const ctaFinal = {
-  headline: "Want to build something intelligent, useful, and visually sharp?",
+  headline: "Let's build something that works.",
   subline:
-    "Let's create systems that solve real problems — from dashboards and automations to full-scale AI-powered platforms.",
+    "From data pipelines and AI integrations to production-grade web platforms — open for collaboration.",
 };

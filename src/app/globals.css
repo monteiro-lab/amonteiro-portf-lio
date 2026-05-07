@@ -69,6 +69,13 @@
     background-clip: text;
   }
 
+  .text-gradient-subtle {
+    background: linear-gradient(135deg, #6b7db8, #8b7cc8, #5b9bb0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
   .text-gradient-warm {
     background: linear-gradient(135deg, #8b5cf6, #ec4899, #f59e0b);
     -webkit-background-clip: text;
@@ -118,10 +125,10 @@
 @keyframes grid-pulse {
   0%,
   100% {
-    opacity: 0.03;
+    opacity: 0.02;
   }
   50% {
-    opacity: 0.06;
+    opacity: 0.04;
   }
 }
 
@@ -222,11 +229,13 @@
     scroll-behavior: auto;
   }
 }
+
 /* -------------------------------------------------------------------------- */
 /* Custom Pixel Glitch Cursors                                                */
 /* -------------------------------------------------------------------------- */
 
-@media (pointer: fine) {
+/* Only apply custom cursors on devices with fine pointer (mouse) */
+@media (pointer: fine) and (hover: hover) {
   body, html {
     cursor: url('/cursors/default.svg') 4 4, auto;
   }
@@ -236,9 +245,24 @@
   .cursor-pointer, a * {
     cursor: url('/cursors/pointer.svg') 12 4, pointer !important;
   }
+
+  a:active, button:active, [role="button"]:active,
+  input[type="submit"]:active, input[type="button"]:active,
+  .cursor-pointer:active {
+    cursor: url('/cursors/active.svg') 4 6, pointer !important;
+  }
   
   /* Text inputs should retain standard text cursor for usability */
   input[type="text"], input[type="email"], input[type="password"], textarea {
     cursor: text !important;
+  }
+}
+
+/* Explicitly disable custom cursors on touch devices */
+@media (hover: none) {
+  body, html, a, button, [role="button"],
+  input[type="submit"], input[type="button"],
+  .cursor-pointer, a * {
+    cursor: auto !important;
   }
 }

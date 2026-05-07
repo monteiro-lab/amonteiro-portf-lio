@@ -21,7 +21,7 @@ export default function ContactSection() {
 
         <SectionReveal>
           <p className="font-mono text-xs tracking-[0.3em] uppercase text-violet-400/80 mb-3">
-            // Transmit
+            // Contact
           </p>
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
             <span className="text-gradient">{ctaFinal.headline}</span>
@@ -49,8 +49,9 @@ export default function ContactSection() {
               Email
             </MagneticButton>
             <MagneticButton
-              href="#"
+              href={identity.linkedin}
               className="glass text-text-primary hover:border-violet-500/30"
+              target="_blank"
             >
               <LinkedinIcon className="w-4 h-4" />
               LinkedIn

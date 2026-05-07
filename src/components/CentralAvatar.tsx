@@ -6,14 +6,28 @@ import { motion } from "framer-motion";
 interface CentralAvatarProps {
   size?: number;
   className?: string;
+  section?: string;
 }
+
+const SECTION_THEMES: Record<string, { eyeColor: string; eyeGlow: string; coreColor: string; coreGlow: string; pulseSpeed: number }> = {
+  hero:     { eyeColor: "#06b6d4", eyeGlow: "rgba(6,182,212,1)",     coreColor: "#3b82f6", coreGlow: "rgba(59,130,246,1)",   pulseSpeed: 2 },
+  projects: { eyeColor: "#8b5cf6", eyeGlow: "rgba(139,92,246,1)",    coreColor: "#8b5cf6", coreGlow: "rgba(139,92,246,1)",    pulseSpeed: 1.4 },
+  stack:    { eyeColor: "#10b981", eyeGlow: "rgba(16,185,129,1)",    coreColor: "#06b6d4", coreGlow: "rgba(6,182,212,1)",     pulseSpeed: 1.6 },
+  about:    { eyeColor: "#06b6d4", eyeGlow: "rgba(6,182,212,1)",     coreColor: "#10b981", coreGlow: "rgba(16,185,129,1)",    pulseSpeed: 2.4 },
+  journey:  { eyeColor: "#3b82f6", eyeGlow: "rgba(59,130,246,1)",    coreColor: "#8b5cf6", coreGlow: "rgba(139,92,246,1)",    pulseSpeed: 2.0 },
+  github:   { eyeColor: "#e8e8f0", eyeGlow: "rgba(232,232,240,0.8)", coreColor: "#3b82f6", coreGlow: "rgba(59,130,246,1)",   pulseSpeed: 2.2 },
+  contact:  { eyeColor: "#06b6d4", eyeGlow: "rgba(6,182,212,1)",     coreColor: "#06b6d4", coreGlow: "rgba(6,182,212,1)",     pulseSpeed: 1.8 },
+};
 
 export default function CentralAvatar({
   size = 280,
   className = "",
+  section = "hero",
 }: CentralAvatarProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  const theme = SECTION_THEMES[section] || SECTION_THEMES.hero;
 
   useEffect(() => {
     const container = containerRef.current;
@@ -70,7 +84,7 @@ export default function CentralAvatar({
             {/* Scanline */}
             <div className="absolute w-full h-full bg-[linear-gradient(transparent_50%,rgba(0,0,0,0.2)_50%)] bg-[length:100%_4px]" />
             
-            {/* Eyes */}
+            {/* Eyes — section-aware color */}
             <motion.div 
               className="relative w-full flex justify-center gap-6 z-10"
               animate={{ 
@@ -81,13 +95,23 @@ export default function CentralAvatar({
             >
               {/* Left Eye */}
               <motion.div 
-                className="w-3.5 h-7 bg-cyan-400 rounded-full shadow-[0_0_15px_rgba(6,182,212,1)]"
+                className="w-3.5 h-7 rounded-full"
+                style={{ 
+                  backgroundColor: theme.eyeColor,
+                  boxShadow: `0 0 15px ${theme.eyeGlow}`,
+                  transition: "background-color 0.6s ease, box-shadow 0.6s ease",
+                }}
                 animate={{ scaleY: [1, 0.1, 1, 1, 1, 1, 1, 1, 1] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               />
               {/* Right Eye */}
               <motion.div 
-                className="w-3.5 h-7 bg-cyan-400 rounded-full shadow-[0_0_15px_rgba(6,182,212,1)]"
+                className="w-3.5 h-7 rounded-full"
+                style={{ 
+                  backgroundColor: theme.eyeColor,
+                  boxShadow: `0 0 15px ${theme.eyeGlow}`,
+                  transition: "background-color 0.6s ease, box-shadow 0.6s ease",
+                }}
                 animate={{ scaleY: [1, 0.1, 1, 1, 1, 1, 1, 1, 1] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.05 }}
               />
@@ -110,13 +134,18 @@ export default function CentralAvatar({
           <div className="w-full h-1 bg-cyan-500/80 rounded-full shadow-[0_0_10px_rgba(6,182,212,0.8)]" />
         </motion.div>
 
-        {/* Body/Core */}
+        {/* Body/Core — section-aware color */}
         <div className="relative w-[45%] h-[20%] bg-gradient-to-b from-gray-800 to-black rounded-[2rem] border border-white/10 flex items-center justify-center shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
            {/* Inner Core */}
            <motion.div 
-              className="w-6 h-6 bg-blue-400 rounded-full shadow-[0_0_20px_rgba(59,130,246,1)] flex items-center justify-center"
+              className="w-6 h-6 rounded-full flex items-center justify-center"
+              style={{
+                backgroundColor: theme.coreColor,
+                boxShadow: `0 0 20px ${theme.coreGlow}`,
+                transition: "background-color 0.6s ease, box-shadow 0.6s ease",
+              }}
               animate={{ scale: [1, 1.2, 1], opacity: [0.8, 1, 0.8] }}
-              transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+              transition={{ duration: theme.pulseSpeed, repeat: Infinity, ease: "easeInOut" }}
            >
               <div className="w-2 h-2 bg-white rounded-full blur-[1px]" />
            </motion.div>

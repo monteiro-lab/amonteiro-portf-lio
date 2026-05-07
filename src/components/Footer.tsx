@@ -15,7 +15,7 @@ export default function Footer() {
           </span>
         </div>
         <p className="font-mono text-xs text-text-muted">
-          Designed & built with precision. Deployed on{" "}
+          Built with Next.js + TypeScript. Hosted on{" "}
           <span className="text-violet-400/60">Vercel</span>.
         </p>
         <div className="font-mono text-xs text-text-muted">
