@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Arthur Monteiro — Full-Stack Developer",
+  title: "Arthur Monteiro | Full-Stack Developer",
   description:
     "Full-Stack Developer building intelligent systems, dashboards, automations, and AI-powered web applications. Explore projects, tech stack, and developer journey.",
   keywords: [
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Arthur Monteiro" }],
   openGraph: {
-    title: "Arthur Monteiro — Full-Stack Developer",
+    title: "Arthur Monteiro | Full-Stack Developer",
     description:
       "Building intelligent systems, dashboards, automations, and AI-powered web applications.",
     type: "website",
