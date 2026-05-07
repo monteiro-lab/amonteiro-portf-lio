@@ -51,7 +51,6 @@ export default function ContactSection() {
             <MagneticButton
               href={identity.linkedin}
               className="glass text-text-primary hover:border-violet-500/30"
-              target="_blank"
             >
               <LinkedinIcon className="w-4 h-4" />
               LinkedIn
