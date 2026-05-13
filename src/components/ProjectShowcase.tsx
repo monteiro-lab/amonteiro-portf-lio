@@ -3,10 +3,12 @@
 import { useState } from "react";
 import SectionReveal from "./SectionReveal";
 import GlowCard from "./GlowCard";
-import { projects } from "@/config/portfolio";
+import { projects, Project } from "@/config/portfolio";
+import ProjectModal from "./ProjectModal";
 
 export default function ProjectShowcase() {
   const [showAll, setShowAll] = useState(false);
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   const featured = projects.filter((p) => p.featured);
   const others = projects.filter((p) => !p.featured);
@@ -45,7 +47,9 @@ export default function ProjectShowcase() {
                 <div className="absolute top-8 -left-4 md:-left-12 w-8 md:w-12 h-px bg-violet-500/20">
                   <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 w-2 h-2 rounded-full border border-violet-500 bg-bg-primary" />
                 </div>
-                <GlowCard project={project} index={i} />
+                <div onClick={() => setSelectedProject(project)} className="cursor-pointer">
+                  <GlowCard project={project} index={i} />
+                </div>
               </div>
             ))}
           </div>
@@ -65,6 +69,11 @@ export default function ProjectShowcase() {
           </SectionReveal>
         )}
       </div>
+
+      <ProjectModal 
+        project={selectedProject} 
+        onClose={() => setSelectedProject(null)} 
+      />
     </section>
   );
 }

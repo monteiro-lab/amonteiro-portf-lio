@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useInView } from "framer-motion";
 
 // Terminal-style tokens for the code rain columns
 const TOKENS = [
@@ -36,6 +37,7 @@ export default function CodeRainBackground({
   className = "",
 }: CodeRainBackgroundProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const isInView = useInView(canvasRef);
   const [reduceMotion, setReduceMotion] = useState(false);
   const columnsRef = useRef<Column[]>([]);
   const animRef = useRef<number>(0);
@@ -50,7 +52,7 @@ export default function CodeRainBackground({
   }, []);
 
   useEffect(() => {
-    if (reduceMotion) return;
+    if (reduceMotion || !isInView) return;
 
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -152,7 +154,7 @@ export default function CodeRainBackground({
       window.removeEventListener("resize", resize);
       cancelAnimationFrame(animRef.current);
     };
-  }, [reduceMotion, intensity]);
+  }, [reduceMotion, intensity, isInView]);
 
   // Reduced motion: show nothing (or a static subtle pattern)
   if (reduceMotion) return null;

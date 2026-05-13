@@ -104,9 +104,19 @@ export default function GlowCard({ project, index }: GlowCardProps) {
           </div>
 
           {/* Description */}
-          <p className="text-text-secondary text-sm leading-relaxed mb-5 flex-1">
+          <p className="text-text-secondary text-sm leading-relaxed mb-4 flex-1">
             {project.description}
           </p>
+
+          {/* Metrics Highlight */}
+          {project.metrics && (
+            <div className="mb-5 bg-violet-500/10 border border-violet-500/20 rounded-lg p-3">
+              <p className="text-xs font-mono text-violet-300 flex items-center gap-2">
+                <Icons.TrendingUp size={14} className="text-violet-400" />
+                {project.metrics}
+              </p>
+            </div>
+          )}
 
           {/* Tech stack badges */}
           <div className="flex flex-wrap gap-1.5 mb-5">
