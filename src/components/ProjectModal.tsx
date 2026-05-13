@@ -12,15 +12,17 @@ interface ProjectModalProps {
 }
 
 export default function ProjectModal({ project, onClose }: ProjectModalProps) {
-  // Prevent body scroll when modal is open
   useEffect(() => {
     if (project) {
       document.body.style.overflow = "hidden";
+      document.body.classList.add("modal-open");
     } else {
       document.body.style.overflow = "auto";
+      document.body.classList.remove("modal-open");
     }
     return () => {
       document.body.style.overflow = "auto";
+      document.body.classList.remove("modal-open");
     };
   }, [project]);
 

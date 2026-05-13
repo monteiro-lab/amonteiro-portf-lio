@@ -266,3 +266,15 @@
     cursor: auto !important;
   }
 }
+
+/* -------------------------------------------------------------------------- */
+/* Modal UI States                                                            */
+/* -------------------------------------------------------------------------- */
+body.modal-open #main-navbar,
+body.modal-open #scroll-progress,
+body.modal-open #avatar-stage {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease !important;
+}

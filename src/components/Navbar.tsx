@@ -30,6 +30,7 @@ export default function Navbar() {
   return (
     <>
       <motion.nav
+        id="main-navbar"
         className="fixed top-0 left-0 right-0 z-40 transition-all duration-500"
         initial={{ y: -80 }}
         animate={{ y: 0 }}
@@ -172,7 +173,7 @@ function ScrollProgress() {
   }, []);
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-50 h-[2px]">
+    <div id="scroll-progress" className="fixed top-0 left-0 right-0 z-50 h-[2px]">
       <motion.div
         className="h-full bg-gradient-to-r from-violet-600 via-blue-500 to-cyan-400"
         style={{ width: `${progress}%` }}

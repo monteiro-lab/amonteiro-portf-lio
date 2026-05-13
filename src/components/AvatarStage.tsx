@@ -153,6 +153,7 @@ export default function AvatarStage() {
 
   return (
     <motion.div 
+      id="avatar-stage"
       className="fixed top-1/2 left-1/2 z-40 pointer-events-none flex flex-col items-center justify-center"
       style={{
         x: isMobile ? mobileX : desktopX,
