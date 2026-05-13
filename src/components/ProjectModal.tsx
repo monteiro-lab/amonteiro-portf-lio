@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import * as Icons from "lucide-react";
+import { GithubIcon } from "./icons";
 import type { Project } from "@/config/portfolio";
 
 interface ProjectModalProps {
@@ -134,7 +135,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                     rel="noopener noreferrer"
                     className="flex items-center gap-3 w-full p-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-violet-500/30 transition-all text-white group"
                   >
-                    <Icons.Github size={18} />
+                    <GithubIcon className="w-[18px] h-[18px]" />
                     <span className="font-mono text-sm">Repositório Oficial</span>
                     <Icons.ArrowUpRight size={14} className="ml-auto text-text-muted group-hover:text-white transition-colors" />
                   </a>

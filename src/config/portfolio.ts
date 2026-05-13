@@ -20,8 +20,8 @@ export interface Project {
   github: string;
   featured: boolean;
   icon: string;
-  metrics—: string; // NOVO: Métrica de impacto (ex: "Reduziu tempo em 40%")
-  videoPreview—: string; // NOVO: Caminho para vídeo WebM/MP4
+  metrics?: string;
+  videoPreview?: string;
 }
 
 export const projects: Project[] = [
@@ -31,7 +31,7 @@ export const projects: Project[] = [
     description:
       "Rastreador da taxa de câmbio USD/BRL em tempo real, com análise histórica e dashboards interativos.",
     longDescription:
-      "Uma aplicação financeira construíída em Flask que monitora as taxas do dólar, oferece análise de tendências históricas e renderiza dashboards visuais interativos para extrair insights valiosos dos dados.",
+      "Uma aplicação financeira construída em Flask que monitora as taxas do dólar, oferece análise de tendências históricas e renderiza dashboards visuais interativos para extrair insights valiosos dos dados.",
     tech: ["Python", "Flask", "Dashboard", "Data Analysis"],
     category: "Data & Finance",
     github: "https://github.com/monteiro-lab/dolar-tracker",
@@ -57,7 +57,7 @@ export const projects: Project[] = [
     id: "ouvidoria-mg",
     name: "Ouvidoria MG",
     description:
-      "Sistema interno de ouvidoria para departamentos de RH: construíído com Flask, Supabase e Docker.",
+      "Sistema interno de ouvidoria para departamentos de RH: construído com Flask, Supabase e Docker.",
     longDescription:
       "Um sistema full-stack completo de gerenciamento de feedback e ouvidoria interna projetado para departamentos de recursos humanos. Apresenta tratamento seguro de dados, acesso baseado em funções e deploy através de contêineres.",
     tech: ["Flask", "Supabase", "Docker", "HTML/CSS"],
@@ -87,7 +87,7 @@ export const projects: Project[] = [
     description:
       "Framework de automação de fluxo de trabalho e pipeline de dados para tarefas de processamento e ETL.",
     longDescription:
-      "Um framework de pipeline de dados em Python projetado para construíir, orquestrar e monitorar fluxos de trabalho de transformação de dados. Simplifica os processos de ETL com uma arquitetura limpa e escalável.",
+      "Um framework de pipeline de dados em Python projetado para construir, orquestrar e monitorar fluxos de trabalho de transformação de dados. Simplifica os processos de ETL com uma arquitetura limpa e escalável.",
     tech: ["Python", "ETL", "Automation", "Data Pipelines"],
     category: "Data & Automation",
     github: "https://github.com/monteiro-lab/dataflow",
@@ -127,7 +127,7 @@ export const projects: Project[] = [
     description:
       "Motor de recomendação de filmes baseado em Flask com filtragem inteligente.",
     longDescription:
-      "Um sistema de recomendação impulsionado por machine learning construíído em Flask que analisa as preferências e padrões de visualização dos usuários para sugerir filmes relevantes usando algoritmos de filtragem avançados.",
+      "Um sistema de recomendação impulsionado por machine learning construído em Flask que analisa as preferências e padrões de visualização dos usuários para sugerir filmes relevantes usando algoritmos de filtragem avançados.",
     tech: ["Python", "Flask", "ML", "Recommendation Engine"],
     category: "AI & Automation",
     github: "https://github.com/monteiro-lab/movie-recommender-flask",
@@ -176,8 +176,8 @@ export const projects: Project[] = [
 
 export interface TechItem {
   name: string;
-  iconUrl—: string;
-  lucideIcon—: string;
+  iconUrl?: string;
+  lucideIcon?: string;
 }
 
 export interface TechCategory {
@@ -309,7 +309,7 @@ export const navItems = [
 ];
 
 export const ctaFinal = {
-  headline: "Vamos construíir algo que realmente funcione.",
+  headline: "Vamos construir algo que realmente funcione.",
   subline:
     "De pipelines de dados e integrações com IA até plataformas web de nível de produção, aberto para colaborações.",
 };
