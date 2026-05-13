@@ -54,8 +54,7 @@ export default function StackConstellation() {
               <span className="text-gradient">Tech Stack</span>
             </h2>
             <p className="text-text-secondary max-w-lg mx-auto drop-shadow-md">
-              Core technologies across every layer — frontend frameworks, Python
-              backends, data pipelines, and cloud infrastructure.
+              Tecnologias centrais em todas as camadas — frameworks frontend, backends Python, pipelines de dados e infraestrutura em nuvem.
             </p>
           </div>
         </SectionReveal>

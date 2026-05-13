@@ -1,10 +1,10 @@
 export const identity = {
   name: "Arthur Monteiro",
   handle: "monteiro-lab",
-  title: "Full-Stack Developer",
-  tagline: "Full-stack systems, data dashboards, AI integrations, and cloud-native infrastructure.",
+  title: "Desenvolvedor Full-Stack",
+  tagline: "Sistemas full-stack, dashboards de dados, integrações com IA e infraestrutura nativa em nuvem.",
   shortBio:
-    "Full-stack developer focused on Python backends, modern frontends, and practical AI integration. Past work includes financial dashboards, AI-assisted scheduling, government-scale complaint platforms, and containerized enterprise systems.",
+    "Desenvolvedor full-stack focado em backends Python, frontends modernos e integração prática de IA. Minha trajetória inclui dashboards financeiros, agendamento inteligente com IA, plataformas governamentais e sistemas corporativos em contêineres.",
   github: "https://github.com/monteiro-lab",
   email: "arthurmm122@gmail.com",
   linkedin: "https://www.linkedin.com/in/arthur-monteiro-9236a4207/",
@@ -27,9 +27,9 @@ export const projects: Project[] = [
     id: "dolar-tracker",
     name: "Dolar Tracker",
     description:
-      "Real-time USD/BRL exchange rate tracker with historical analysis and interactive dashboards.",
+      "Rastreador da taxa de câmbio USD/BRL em tempo real, com análise histórica e dashboards interativos.",
     longDescription:
-      "A Flask-powered financial tracking application that monitors dollar exchange rates, provides historical trend analysis, and renders interactive visual dashboards for data-driven insights.",
+      "Uma aplicação financeira construída em Flask que monitora as taxas do dólar, oferece análise de tendências históricas e renderiza dashboards visuais interativos para extrair insights valiosos dos dados.",
     tech: ["Python", "Flask", "Dashboard", "Data Analysis"],
     category: "Data & Finance",
     github: "https://github.com/monteiro-lab/dolar-tracker",
@@ -40,9 +40,9 @@ export const projects: Project[] = [
     id: "calendar-ai-pro",
     name: "CalendarAI PRO",
     description:
-      "Intelligent scheduling web app powered by AI, LangChain, and Google Calendar sync.",
+      "Web app de agendamento inteligente potencializado por IA, LangChain e sincronização com o Google Calendar.",
     longDescription:
-      "An AI-assisted calendar application that uses LangChain for natural language processing, integrates with Google Calendar, and leverages Supabase for real-time data persistence. Built for smart, automated scheduling.",
+      "Uma aplicação de calendário assistida por IA que utiliza o LangChain para processamento de linguagem natural, integra-se ao Google Calendar e aproveita o Supabase para persistência de dados em tempo real. Projetado para proporcionar um agendamento inteligente e automatizado.",
     tech: ["Python", "Flask", "LangChain", "Supabase", "Google Calendar API"],
     category: "AI & Automation",
     github: "https://github.com/ndmg-dev/CalendarAI_PRO",
@@ -53,9 +53,9 @@ export const projects: Project[] = [
     id: "ouvidoria-mg",
     name: "Ouvidoria MG",
     description:
-      "Internal ombudsman system for HR departments — built with Flask, Supabase, and Docker.",
+      "Sistema interno de ouvidoria para departamentos de RH — construído com Flask, Supabase e Docker.",
     longDescription:
-      "A full-stack internal complaint and feedback management system designed for human resources departments. Features secure data handling, role-based access, and containerized deployment.",
+      "Um sistema full-stack completo de gerenciamento de feedback e ouvidoria interna projetado para departamentos de recursos humanos. Apresenta tratamento seguro de dados, acesso baseado em funções e deploy através de contêineres.",
     tech: ["Flask", "Supabase", "Docker", "HTML/CSS"],
     category: "Enterprise Systems",
     github: "https://github.com/ndmg-dev/ouvidoria-mg",
@@ -66,9 +66,9 @@ export const projects: Project[] = [
     id: "gridx",
     name: "GridX",
     description:
-      "Data grid and analytics toolkit for structured data exploration and visualization.",
+      "Kit de ferramentas analíticas e grid de dados para exploração e visualização de dados estruturados.",
     longDescription:
-      "A Jupyter-based data analysis and grid visualization toolkit for exploring structured datasets with interactive notebooks and visual analysis pipelines.",
+      "Um kit de ferramentas de análise de dados e visualização em formato de grid baseado no Jupyter, focado em explorar conjuntos de dados estruturados com notebooks interativos e pipelines de análise visual.",
     tech: ["Python", "Jupyter", "Data Analysis", "Pandas"],
     category: "Data & Dashboards",
     github: "https://github.com/monteiro-lab/GridX",
@@ -79,9 +79,9 @@ export const projects: Project[] = [
     id: "dataflow",
     name: "DataFlow",
     description:
-      "Data pipeline and workflow automation framework for ETL and processing tasks.",
+      "Framework de automação de fluxo de trabalho e pipeline de dados para tarefas de processamento e ETL.",
     longDescription:
-      "A Python-based data pipeline framework designed for building, orchestrating, and monitoring data transformation workflows. Streamlines ETL processes with clean, composable architecture.",
+      "Um framework de pipeline de dados em Python projetado para construir, orquestrar e monitorar fluxos de trabalho de transformação de dados. Simplifica os processos de ETL com uma arquitetura limpa e escalável.",
     tech: ["Python", "ETL", "Automation", "Data Pipelines"],
     category: "Data & Automation",
     github: "https://github.com/monteiro-lab/dataflow",
@@ -92,9 +92,9 @@ export const projects: Project[] = [
     id: "sky-stars",
     name: "Sky Stars",
     description:
-      "Visual astronomical data exploration and star mapping application.",
+      "Aplicação visual de exploração de dados astronômicos e mapeamento estelar.",
     longDescription:
-      "An application that brings astronomical data to life through interactive visualizations and star mapping, combining data science with visual storytelling.",
+      "Uma aplicação que dá vida aos dados astronômicos através de visualizações interativas e mapeamento estelar, combinando ciência de dados com uma narrativa visual imersiva.",
     tech: ["Python", "Data Visualization", "API Integration"],
     category: "Data Visualization",
     github: "https://github.com/monteiro-lab/Sky-Stars",
@@ -105,9 +105,9 @@ export const projects: Project[] = [
     id: "gestao-diocesana",
     name: "Gestão Diocesana",
     description:
-      "Parish and diocese management system with organizational workflows.",
+      "Sistema de gestão paroquial e diocesana com fluxos de trabalho organizacionais.",
     longDescription:
-      "A comprehensive management system for ecclesiastical organizations, handling parish records, organizational workflows, and administrative processes in a structured digital platform.",
+      "Um sistema de gerenciamento abrangente para organizações eclesiásticas, projetado para lidar com registros paroquiais, fluxos de trabalho organizacionais e processos administrativos através de uma plataforma digital estruturada.",
     tech: ["Python", "Flask", "Database", "Web Systems"],
     category: "Enterprise Systems",
     github: "https://github.com/monteiro-lab/gestao-diocesana",
@@ -118,9 +118,9 @@ export const projects: Project[] = [
     id: "movie-recommender",
     name: "Movie Recommender",
     description:
-      "Flask-based movie recommendation engine with intelligent filtering.",
+      "Motor de recomendação de filmes baseado em Flask com filtragem inteligente.",
     longDescription:
-      "A machine learning-powered recommendation system built on Flask that analyzes user preferences and viewing patterns to suggest relevant films with intelligent filtering algorithms.",
+      "Um sistema de recomendação impulsionado por machine learning construído em Flask que analisa as preferências e padrões de visualização dos usuários para sugerir filmes relevantes usando algoritmos de filtragem avançados.",
     tech: ["Python", "Flask", "ML", "Recommendation Engine"],
     category: "AI & Automation",
     github: "https://github.com/monteiro-lab/movie-recommender-flask",
@@ -131,9 +131,9 @@ export const projects: Project[] = [
     id: "fiscalpro",
     name: "FiscalPro",
     description:
-      "Tax calculation and fiscal management tool for Brazilian tax workflows.",
+      "Ferramenta de cálculo de impostos e gestão fiscal focada em rotinas fiscais brasileiras.",
     longDescription:
-      "A specialized fiscal management application designed for Brazilian tax compliance workflows, automating calculations, generating reports, and streamlining accounting processes.",
+      "Uma aplicação especializada em gestão fiscal projetada para compliance com as rotinas fiscais do Brasil, automatizando cálculos, gerando relatórios e simplificando os processos contábeis.",
     tech: ["Python", "Flask", "Finance", "Automation"],
     category: "Data & Finance",
     github: "https://github.com/monteiro-lab/FiscalPro",
@@ -143,9 +143,9 @@ export const projects: Project[] = [
   {
     id: "cotidiano-pdf",
     name: "Cotidiano PDF Studio",
-    description: "PDF generation and manipulation studio for document workflows.",
+    description: "Estúdio de geração e manipulação de PDFs para fluxos de trabalho de documentos.",
     longDescription:
-      "A document processing toolkit that enables creation, manipulation, and transformation of PDF files with a focus on streamlining daily document-centric workflows.",
+      "Um kit completo de processamento de documentos que possibilita a criação, manipulação e transformação de arquivos PDF, com um foco central em otimizar as rotinas diárias com documentos.",
     tech: ["Python", "PDF Processing", "Automation"],
     category: "Tools & Automation",
     github: "https://github.com/monteiro-lab/cotidiano-pdf-studio",
@@ -156,15 +156,15 @@ export const projects: Project[] = [
     id: "pdfwizard",
     name: "PDF Wizard",
     description:
-      "Advanced PDF transformation and processing utility with batch support.",
+      "Utilitário avançado de processamento e transformação de PDFs com suporte a operações em lote.",
     longDescription:
-      "A versatile PDF processing utility that handles complex transformations, merging, splitting, and batch operations for document management workflows.",
+      "Um utilitário de processamento de PDF muito versátil que lida com transformações complexas, mesclagem, divisão e operações em lote para simplificar os fluxos de trabalho de gestão documental.",
     tech: ["Python", "PDF Processing", "CLI"],
     category: "Tools & Automation",
     github: "https://github.com/monteiro-lab/pdfwizard",
     featured: false,
     icon: "Wand2",
-  },
+  }
 ];
 
 export interface TechItem {
@@ -252,41 +252,41 @@ export const techStack: TechCategory[] = [
 export const journeyMilestones = [
   {
     phase: "Foundation",
-    title: "First Full-Stack Systems",
+    title: "Primeiros Sistemas Full-Stack",
     description:
-      "Built foundational web applications and learned to connect frontend interfaces to Python-powered backends.",
+      "Construí aplicações web base e aprendi a conectar interfaces frontend a backends em Python.",
     projects: ["gestao-diocesana", "pdfwizard"],
     icon: "Hammer",
   },
   {
     phase: "Data Era",
-    title: "Dashboards & Data Tools",
+    title: "Dashboards & Ferramentas de Dados",
     description:
-      "Developed data-driven applications, interactive dashboards, and financial tracking systems.",
+      "Desenvolvi aplicações guiadas por dados, dashboards interativos e sistemas de análise financeira.",
     projects: ["dolar-tracker", "GridX", "dataflow"],
     icon: "BarChart2",
   },
   {
     phase: "AI Integration",
-    title: "AI-Assisted Applications",
+    title: "Aplicações com IA",
     description:
-      "Integrated AI and LangChain into production applications for intelligent scheduling and recommendation engines.",
+      "Integrei IA e LangChain em aplicações de produção para desenvolver agentes inteligentes de agendamento e recomendação.",
     projects: ["CalendarAI_PRO", "movie-recommender"],
     icon: "Bot",
   },
   {
     phase: "Enterprise Scale",
-    title: "Containerized & Cloud Systems",
+    title: "Sistemas em Nuvem & Contêineres",
     description:
-      "Built enterprise-grade systems with Docker, Supabase, and cloud-native architecture for real organizations.",
+      "Projetei sistemas robustos de nível corporativo com Docker, Supabase e arquitetura nativa em nuvem para organizações reais.",
     projects: ["ouvidoria-mg", "FiscalPro"],
     icon: "Cloud",
   },
   {
     phase: "Current",
-    title: "Intelligent Web Ecosystems",
+    title: "Ecossistemas Web Inteligentes",
     description:
-      "Combining full-stack development, AI, automation, and cloud infrastructure to build complete digital solutions.",
+      "Combinando desenvolvimento full-stack, IA, automação e infraestrutura em nuvem para criar soluções digitais completas.",
     projects: [],
     icon: "Zap",
   },
@@ -302,7 +302,7 @@ export const navItems = [
 ];
 
 export const ctaFinal = {
-  headline: "Let's build something that works.",
+  headline: "Vamos construir algo que realmente funcione.",
   subline:
-    "From data pipelines and AI integrations to production-grade web platforms — open for collaboration.",
+    "De pipelines de dados e integrações com IA até plataformas web de nível de produção — aberto para colaborações.",
 };

@@ -282,8 +282,8 @@ export default function IntroGate({ onEnter }: IntroGateProps) {
               {/* Label */}
               <p className="text-center mt-6 text-text-muted text-xs font-mono tracking-wider">
                 {isComplete
-                  ? "LAUNCHING..."
-                  : "HOVER OR TAP TO LOAD"}
+                  ? "INICIANDO..."
+                  : "PASSE O MOUSE OU TOQUE PARA CARREGAR"}
               </p>
             </motion.div>
           </motion.div>

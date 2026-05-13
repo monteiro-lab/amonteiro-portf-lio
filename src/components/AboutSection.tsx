@@ -62,8 +62,8 @@ export default function AboutSection() {
                     Core Focus
                   </p>
                   <p className="text-text-secondary text-sm">
-                    Full-stack web applications with Python backends, modern
-                    frontends, and cloud-native infrastructure.
+                    Aplicações web full-stack com backends em Python, frontends
+                    modernos e infraestrutura nativa em nuvem.
                   </p>
                 </div>
                 <div className="space-y-2">
@@ -71,8 +71,8 @@ export default function AboutSection() {
                     Approach
                   </p>
                   <p className="text-text-secondary text-sm">
-                    Ship real systems that solve real problems. Every project
-                    aims to be production-grade from architecture to deployment.
+                    Entregar sistemas reais que resolvem problemas reais. Todo projeto
+                    visa a excelência e o nível de produção, desde a arquitetura até o deploy.
                   </p>
                 </div>
                 <div className="space-y-2">
@@ -80,9 +80,9 @@ export default function AboutSection() {
                     Current Direction
                   </p>
                   <p className="text-text-secondary text-sm">
-                    Integrating AI capabilities into existing workflows —
-                    LangChain, automation pipelines, and intelligent scheduling
-                    systems.
+                    Integrar capacidades de IA em fluxos de trabalho existentes —
+                    LangChain, pipelines de automação e sistemas de agendamento
+                    inteligente.
                   </p>
                 </div>
               </div>
@@ -94,7 +94,7 @@ export default function AboutSection() {
                 <span className="text-blue-400">~</span>
                 <span className="text-text-muted">$ </span>
                 <span className="text-text-secondary">
-                  echo &quot;Build systems that matter. Ship code that works.&quot;
+                  echo &quot;Construa sistemas relevantes. Entregue código que funciona.&quot;
                 </span>
               </div>
             </div>

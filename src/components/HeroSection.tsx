@@ -168,7 +168,7 @@ export default function HeroSection() {
         <div className="absolute bottom-[10%] md:bottom-[12%] left-1/2 -translate-x-1/2 text-center w-full px-6 flex flex-col items-center z-20">
           <SectionReveal delay={0.5}>
             <p className="text-sm md:text-base text-text-muted max-w-lg leading-relaxed mb-6 mx-auto drop-shadow-md">
-              Full-stack developer building Python-powered systems, dashboards, automations, and AI-assisted web applications.
+              Desenvolvedor full-stack focado na construção de sistemas em Python, dashboards, automações e aplicações web impulsionadas por IA.
             </p>
           </SectionReveal>
 
@@ -179,7 +179,7 @@ export default function HeroSection() {
                   href="#projects"
                   className="bg-gradient-to-r from-violet-600 to-blue-600 text-white hover:shadow-[0_0_25px_rgba(139,92,246,0.4)] border border-violet-400/30 transition-shadow duration-300 px-6 py-3"
                 >
-                  Explore Projects
+                  Explorar Projetos
                   <ArrowDown className="w-4 h-4 ml-1 opacity-80" />
                 </MagneticButton>
                 <MagneticButton
@@ -191,7 +191,7 @@ export default function HeroSection() {
                 </MagneticButton>
               </div>
               <p className="font-mono text-[10px] text-text-muted/50 tracking-wider">
-                SELECTED BUILDS & SOURCE CODE
+                PROJETOS SELECIONADOS & CÓDIGO FONTE
               </p>
             </div>
           </SectionReveal>

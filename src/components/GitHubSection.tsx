@@ -22,7 +22,7 @@ export default function GitHubSection() {
               <span className="text-gradient">Source Code</span>
             </h2>
             <p className="text-text-secondary max-w-xl mx-auto">
-              All projects are open source. Explore, fork, or contribute.
+              Todos os projetos são open source. Explore, faça forks ou contribua.
             </p>
           </div>
         </SectionReveal>
@@ -90,7 +90,7 @@ export default function GitHubSection() {
               <div className="pt-2 border-t border-white/[0.04]">
                 <span className="text-emerald-400">$</span>
                 <span className="text-text-muted ml-2">
-                  # Total: {projects.length} public repositories
+                  # Total: {projects.length} repositórios públicos
                 </span>
               </div>
             </div>
@@ -105,7 +105,7 @@ export default function GitHubSection() {
               className="bg-white/[0.04] border border-white/[0.08] text-white hover:border-violet-500/30 hover:bg-violet-500/10"
             >
               <GithubIcon className="w-4 h-4" />
-              View All Repositories
+              Ver Todos os Repositórios
             </MagneticButton>
           </div>
         </SectionReveal>

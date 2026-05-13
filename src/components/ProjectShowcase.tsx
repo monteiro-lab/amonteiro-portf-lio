@@ -25,8 +25,7 @@ export default function ProjectShowcase() {
               <span className="text-gradient">Selected Work</span>
             </h2>
             <p className="text-text-secondary max-w-lg mx-auto">
-              Real systems built for real use — financial tracking, AI scheduling,
-              government platforms, and data tools.
+              Sistemas reais construídos para uso real — acompanhamento financeiro, agendamento por IA, plataformas governamentais e ferramentas de dados.
             </p>
           </div>
         </SectionReveal>
@@ -60,7 +59,7 @@ export default function ProjectShowcase() {
                 onClick={() => setShowAll(true)}
                 className="font-mono text-sm text-text-muted hover:text-violet-400 border border-white/[0.06] hover:border-violet-500/30 px-6 py-3 rounded-full transition-all duration-300 cursor-pointer"
               >
-                View All {projects.length} Projects
+                Ver Todos os {projects.length} Projetos
               </button>
             </div>
           </SectionReveal>
