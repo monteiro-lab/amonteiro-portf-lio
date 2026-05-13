@@ -3,7 +3,8 @@
 import { useState } from "react";
 import SectionReveal from "./SectionReveal";
 import GlowCard from "./GlowCard";
-import { projects, Project } from "@/config/portfolio";
+import { projects } from "@/config/portfolio";
+import type { Project } from "@/config/portfolio";
 import ProjectModal from "./ProjectModal";
 
 export default function ProjectShowcase() {

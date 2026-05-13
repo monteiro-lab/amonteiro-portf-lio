@@ -4,7 +4,7 @@ import { useRef, MouseEvent } from "react";
 import { motion } from "framer-motion";
 import * as Icons from "lucide-react";
 import { ExternalLink } from "lucide-react";
-import { Project } from "@/config/portfolio";
+import type { Project } from "@/config/portfolio";
 
 interface GlowCardProps {
   project: Project;

@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import * as Icons from "lucide-react";
-import { Project } from "@/config/portfolio";
+import type { Project } from "@/config/portfolio";
 
 interface ProjectModalProps {
   project: Project | null;
