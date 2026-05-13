@@ -51,7 +51,7 @@ export default function IntroGate({ onEnter }: IntroGateProps) {
     setIsHovering(false);
     if (intervalRef.current) clearInterval(intervalRef.current);
     
-    // Drain progress
+    // esvazia o progresso se o usuário tirar o mouse
     intervalRef.current = setInterval(() => {
       setProgress((prev) => {
         if (prev <= 0) {
@@ -80,9 +80,9 @@ export default function IntroGate({ onEnter }: IntroGateProps) {
           exit={{ opacity: 0, scale: 1.1 }}
           transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
         >
-          {/* Layer 1: Base dark background — via style above */}
+          {/* fundo escuro base */}
 
-          {/* Layer 2: Ambient radial gradient */}
+          {/* gradiente radial pra criar um clima */}
           <div
             className="absolute inset-0 pointer-events-none"
             style={{
@@ -91,7 +91,7 @@ export default function IntroGate({ onEnter }: IntroGateProps) {
             }}
           />
 
-          {/* Layer 3: Code rain background */}
+          {/* chuva de código no fundo */}
           <motion.div
             className="absolute inset-0 pointer-events-none"
             initial={{ opacity: 0 }}
@@ -103,7 +103,7 @@ export default function IntroGate({ onEnter }: IntroGateProps) {
             />
           </motion.div>
 
-          {/* Layer 4: Subtle grid overlay for terminal feel */}
+          {/* grid sutil pra dar cara de terminal */}
           <div
             className="absolute inset-0 pointer-events-none"
             style={{
@@ -116,7 +116,7 @@ export default function IntroGate({ onEnter }: IntroGateProps) {
             }}
           />
 
-          {/* Layer 4b: Scan line effect during loading */}
+          {/* efeito de scanner passando durante o loading */}
           {isHovering && (
             <div
               className="absolute inset-0 pointer-events-none overflow-hidden"
@@ -129,14 +129,14 @@ export default function IntroGate({ onEnter }: IntroGateProps) {
             </div>
           )}
 
-          {/* Layer 5-7: Content (Avatar, Text, Button) */}
+          {/* conteúdo principal da tela */}
           <motion.div
             className="relative z-10 flex flex-col items-center w-full max-w-5xl gap-8 px-6"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.3 }}
           >
-            {/* Avatar */}
+            {/* avatar */}
             <motion.div
               animate={{
                 scale: isHovering ? 1.05 : 1,
@@ -151,7 +151,7 @@ export default function IntroGate({ onEnter }: IntroGateProps) {
               <CentralAvatar size={200} />
             </motion.div>
 
-            {/* Identity */}
+            {/* título e descrição */}
             <div className="text-center flex flex-col items-center w-full space-y-3">
               <motion.div
                 className="font-mono text-sm tracking-[0.3em] uppercase text-violet-400/80 h-[1.4em]"
@@ -179,7 +179,7 @@ export default function IntroGate({ onEnter }: IntroGateProps) {
               </motion.p>
             </div>
 
-            {/* Hover to Enter Button */}
+            {/* botão pra entrar no portfólio */}
             <motion.div
               className="relative mt-4 flex flex-col items-center"
               initial={{ opacity: 0 }}
@@ -206,7 +206,7 @@ export default function IntroGate({ onEnter }: IntroGateProps) {
                 className="relative group cursor-pointer select-none"
                 aria-label="Hover or hold to enter portfolio"
               >
-                {/* Outer glow ring */}
+                {/* anel brilhante em volta do botão */}
                 <div
                   className="absolute -inset-3 rounded-full transition-opacity duration-300"
                   style={{
@@ -216,7 +216,7 @@ export default function IntroGate({ onEnter }: IntroGateProps) {
                   }}
                 />
 
-                {/* Progress ring - SVG */}
+                {/* círculo de progresso animado em SVG */}
                 <svg
                   className="absolute -inset-1"
                   viewBox="0 0 120 120"
@@ -257,7 +257,7 @@ export default function IntroGate({ onEnter }: IntroGateProps) {
                   </defs>
                 </svg>
 
-                {/* Button face */}
+                {/* interior do botão */}
                 <div
                   className="relative w-28 h-28 md:w-32 md:h-32 rounded-full flex flex-col items-center justify-center gap-1 transition-all duration-300"
                   style={{
@@ -279,7 +279,7 @@ export default function IntroGate({ onEnter }: IntroGateProps) {
                 </div>
               </button>
 
-              {/* Label */}
+              {/* instrução pra interação */}
               <p className="text-center mt-6 text-text-muted text-xs font-mono tracking-wider">
                 {isComplete
                   ? "INICIANDO..."
@@ -288,7 +288,7 @@ export default function IntroGate({ onEnter }: IntroGateProps) {
             </motion.div>
           </motion.div>
 
-          {/* Corner decorations */}
+          {/* detalhes nos cantos da tela */}
           <div className="absolute top-6 left-6 text-text-muted/30 font-mono text-xs hidden md:block">
             <div>SYS.PORTFOLIO</div>
             <div className="text-violet-500/40">v2.0.26</div>
@@ -297,13 +297,13 @@ export default function IntroGate({ onEnter }: IntroGateProps) {
             <div>STATUS: {isComplete ? "READY" : isHovering ? "LOADING" : "STANDBY"}</div>
           </div>
 
-          {/* Bottom-left corner — session info */}
+          {/* informações no canto inferior esquerdo */}
           <div className="absolute bottom-6 left-6 text-text-muted/20 font-mono text-[10px] hidden md:block leading-relaxed">
             <div>SESSION: {mounted ? "ACTIVE" : "..."}</div>
             <div>RENDER: CLIENT</div>
           </div>
           
-          {/* Top-right corner — timestamp-style */}
+          {/* informações no canto superior direito */}
           <div className="absolute top-6 right-6 text-text-muted/20 font-mono text-[10px] hidden md:block text-right leading-relaxed">
             <div>NODE: MAIN</div>
             <div>PROTOCOL: HTTPS</div>

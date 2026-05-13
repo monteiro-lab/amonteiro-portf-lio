@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useInView } from "framer-motion";
 
-// Terminal-style tokens for the code rain columns
+// palavras-chave pra simular a chuva de código do matrix
 const TOKENS = [
   "0", "1", "const", "let", "async", "await", "fn", "=>",
   "AI", "API", "sys", "run", "build", "Flask", "def",
@@ -22,7 +22,7 @@ interface Column {
   chars: string[];
   charIndex: number;
   opacity: number;
-  hue: number; // 180=cyan, 250=violet, 220=blue
+  hue: number; // paleta de cores: 180=ciano, 250=violeta, 220=azul
 }
 
 interface CodeRainBackgroundProps {
@@ -42,7 +42,7 @@ export default function CodeRainBackground({
   const columnsRef = useRef<Column[]>([]);
   const animRef = useRef<number>(0);
 
-  // Check reduced motion preference client-side only
+  // verifica se o usuário prefere menos animações
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
     setReduceMotion(mq.matches);
@@ -74,7 +74,7 @@ export default function CodeRainBackground({
       const numCols = Math.floor(canvas.width / columnSpacing);
       
       for (let i = 0; i < numCols; i++) {
-        // Randomize initial state so columns are staggered
+        // randomiza o estado inicial pra chuva não cair toda junta
         const charList: string[] = [];
         const numChars = Math.floor(Math.random() * 6) + 3;
         for (let j = 0; j < numChars; j++) {
@@ -83,12 +83,12 @@ export default function CodeRainBackground({
 
         cols.push({
           x: i * columnSpacing + columnSpacing / 2 + (Math.random() - 0.5) * 10,
-          y: Math.random() * -canvas.height * 1.5, // start off-screen at varying heights
+          y: Math.random() * -canvas.height * 1.5, // começa fora da tela em alturas diferentes
           speed: 0.3 + Math.random() * 0.6,
           chars: charList,
           charIndex: 0,
           opacity: 0.15 + Math.random() * 0.25,
-          hue: [180, 250, 220, 160][Math.floor(Math.random() * 4)], // cyan, violet, blue, teal
+          hue: [180, 250, 220, 160][Math.floor(Math.random() * 4)], // sorteia a cor do rastro
         });
       }
       columnsRef.current = cols;
@@ -105,18 +105,18 @@ export default function CodeRainBackground({
       for (const col of columns) {
         const lineHeight = fontSize * 1.8;
         
-        // Draw each character in the column's trail
+        // desenha cada caractere do rastro
         for (let i = 0; i < col.chars.length; i++) {
           const charY = col.y + i * lineHeight;
           
-          // Only draw if on screen
+          // desenha só se tiver visível na tela pra economizar gpu
           if (charY < -lineHeight || charY > canvas.height + lineHeight) continue;
           
-          // Fade: leading char is brightest, trail fades
+          // o primeiro caractere brilha mais e o rastro vai apagando
           const trailFade = 1 - (i / col.chars.length) * 0.7;
           const alpha = col.opacity * trailFade * intensity;
           
-          // Leading character gets a slight brightness boost
+          // dá um brilho extra pro caractere da ponta
           const isLead = i === 0;
           const saturation = isLead ? 80 : 50;
           const lightness = isLead ? 65 : 45;
@@ -126,13 +126,13 @@ export default function CodeRainBackground({
           ctx.fillText(col.chars[i], col.x, charY);
         }
 
-        // Move column down
+        // faz a coluna descer
         col.y += col.speed;
 
-        // Reset when fully off bottom
+        // recomeça quando sair da tela por baixo
         const totalHeight = col.chars.length * fontSize * 1.8;
         if (col.y - totalHeight > canvas.height) {
-          // Respawn at top with new tokens
+          // nasce de novo lá no topo com novos tokens
           col.y = Math.random() * -300 - 50;
           col.charIndex = 0;
           const numChars = Math.floor(Math.random() * 6) + 3;
@@ -156,7 +156,7 @@ export default function CodeRainBackground({
     };
   }, [reduceMotion, intensity, isInView]);
 
-  // Reduced motion: show nothing (or a static subtle pattern)
+  // remove a animação se o usuário prefere menos movimento
   if (reduceMotion) return null;
 
   return (

@@ -8,7 +8,7 @@ import SectionReveal from "./SectionReveal";
 import { identity } from "@/config/portfolio";
 
 export default function HeroSection() {
-  // Hardcoded high-value badges for the Hero orbit
+  // badges flutuantes em volta do avatar no header
   const heroBadges = [
     { name: "Python", color: "#8b5cf6", angle: Math.PI / 4 + 0.1, radiusX: 240, radiusY: 160 },
     { name: "Flask & APIs", color: "#3b82f6", angle: Math.PI / 4 * 3 - 0.1, radiusX: 240, radiusY: 160 },
@@ -28,9 +28,9 @@ export default function HeroSection() {
       id="hero"
       className="relative min-h-screen w-full flex flex-col items-center justify-center py-24 px-6 overflow-hidden bg-[#05050a]"
     >
-        {/* Background Depth & Decor */}
+        {/* decorações e profundidade do fundo */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
-          {/* Subtle grid mesh */}
+          {/* grid bem sutil no fundo */}
           <div 
             className="absolute inset-0 opacity-[0.02]" 
             style={{ 
@@ -39,14 +39,14 @@ export default function HeroSection() {
               maskImage: 'radial-gradient(ellipse at center, black 20%, transparent 70%)'
             }} 
           />
-          {/* Avatar Pedestal Glow */}
+          {/* brilho no centro pra dar destaque ao avatar */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-violet-600/10 rounded-full blur-[80px] animate-pulse" style={{ animationDuration: '4s' }} />
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-cyan-600/10 rounded-full blur-[60px] animate-pulse" style={{ animationDuration: '6s', animationDelay: '1s' }} />
         </div>
 
-        {/* Side HUD Panels (Desktop Only) */}
+        {/* painéis laterais no estilo HUD (só aparece no desktop) */}
         <div className="absolute inset-0 pointer-events-none hidden xl:block z-10">
-          {/* Left Panel */}
+          {/* painel da esquerda */}
           <motion.div 
             className="absolute left-8 top-1/2 -translate-y-1/2 flex flex-col gap-6"
             initial={{ opacity: 0, x: -50 }}
@@ -63,7 +63,7 @@ export default function HeroSection() {
             ))}
           </motion.div>
 
-          {/* Right Panel */}
+          {/* painel da direita */}
           <motion.div 
             className="absolute right-8 top-1/2 -translate-y-1/2 flex flex-col gap-6 items-end"
             initial={{ opacity: 0, x: 50 }}
@@ -81,7 +81,7 @@ export default function HeroSection() {
           </motion.div>
         </div>
 
-        {/* Top Text (Name & Title) - sits above the avatar */}
+        {/* texto principal (nome e título) que fica acima do avatar */}
         <div className="absolute top-[12%] md:top-[12%] left-1/2 -translate-x-1/2 text-center w-full px-6 z-20">
           <SectionReveal delay={0.2}>
             <div className="flex items-center justify-center gap-2 mb-4 opacity-80">
@@ -103,7 +103,7 @@ export default function HeroSection() {
           </SectionReveal>
         </div>
 
-        {/* Dynamic orbiting badges framing the global avatar */}
+        {/* badges dinâmicos orbitando ao redor do avatar global */}
         <div className="absolute inset-0 pointer-events-none z-10 hidden md:block">
           {heroBadges.map((badge, i) => {
             return (
@@ -125,7 +125,7 @@ export default function HeroSection() {
                   damping: 25,
                 }}
               >
-                {/* SVG Targeting Line */}
+                {/* linha SVG conectando o badge ao centro */}
                 <svg className="absolute pointer-events-none z-[-1]" style={{ width: '600px', height: '600px', left: '50%', top: '50%', transform: 'translate(-50%, -50%)', overflow: 'visible' }}>
                   <line 
                     x1="300" 
@@ -164,7 +164,7 @@ export default function HeroSection() {
           })}
         </div>
 
-        {/* Bottom CTA & Tagline - sits below the avatar */}
+        {/* botões e descrição que ficam abaixo do avatar */}
         <div className="absolute bottom-[10%] md:bottom-[12%] left-1/2 -translate-x-1/2 text-center w-full px-6 flex flex-col items-center z-20">
           <SectionReveal delay={0.5}>
             <p className="text-sm md:text-base text-text-muted max-w-lg leading-relaxed mb-6 mx-auto drop-shadow-md">
@@ -197,7 +197,7 @@ export default function HeroSection() {
           </SectionReveal>
         </div>
 
-      {/* Scroll indicator */}
+      {/* setinha indicando que tem mais scroll pra baixo */}
       <motion.div
         className="absolute bottom-6 left-1/2 -translate-x-1/2 pointer-events-none z-10"
         animate={{ y: [0, 8, 0] }}

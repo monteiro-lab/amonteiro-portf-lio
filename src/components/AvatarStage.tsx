@@ -40,23 +40,23 @@ export default function AvatarStage() {
       const aTop = about?.offsetTop || 2400;
       const cTop = contact?.offsetTop || 3200;
 
-      // Create a 9-point scene map to hold the avatar in safe zones during sections
-      // and only transition rapidly between them.
+      // cria um mapa de 9 pontos pra manter o avatar em áreas seguras durante as seções
+      // e fazer transições rápidas entre elas.
       setOffsets([
-        hTop,                   // 0: Hero Center
-        pTop - 100,             // 1: Leaving Hero
-        pTop + 200,             // 2: Parked in Projects (Right)
-        pBot - 300,             // 3: Leaving Projects
-        sTop,                   // 4: Entering Stack
-        sTop + 200,             // 5: Parked in Stack Constellation (Center)
-        sBot - 100,             // 6: Leaving Stack
-        aTop + 100,             // 7: Parked in About (Left)
-        cTop                    // 8: Contact
+        hTop,                   // 0: no centro do hero
+        pTop - 100,             // 1: saindo do hero
+        pTop + 200,             // 2: na seção de projetos (direita)
+        pBot - 300,             // 3: saindo de projetos
+        sTop,                   // 4: entrando na stack
+        sTop + 200,             // 5: no centro da constelação (escondido)
+        sBot - 100,             // 6: saindo da stack
+        aTop + 100,             // 7: na seção sobre mim (esquerda)
+        cTop                    // 8: contato
       ]);
     };
 
     checkMobile();
-    // Wait for DOM layout to settle
+    // aguarda o DOM terminar o layout
     setTimeout(updateOffsets, 150);
     window.addEventListener("resize", () => {
       checkMobile();
@@ -65,7 +65,7 @@ export default function AvatarStage() {
     return () => window.removeEventListener("resize", updateOffsets);
   }, []);
 
-  // Track current section for avatar personality
+  // acompanha a seção atual pra mudar a expressão/personalidade do avatar
   useEffect(() => {
     const sectionIds = ["contact", "github", "journey", "about", "stack", "projects", "hero"];
     
@@ -89,53 +89,53 @@ export default function AvatarStage() {
     restDelta: 1
   });
 
-  // 9-Point Mappings matching the offsets array
-  // Scale mapping
+  // mapeamento dos 9 pontos casando com o array de offsets
+  // escala do avatar
   const desktopScale = useTransform(smoothScrollY, offsets, [
-    1.0,  // Hero
-    0.8,  // Transit
-    0.6,  // Projects Parked
-    0.6,  // Transit
-    0.01, // Transit (Entering Stack) - Avoid 0 to prevent Framer matrix collapse
-    0.01, // Stack Parked (Hidden)
-    0.01, // Transit (Leaving Stack)
-    0.5,  // About Parked
-    0.5   // Contact
+    1.0,  // hero
+    0.8,  // transição
+    0.6,  // projetos
+    0.6,  // transição
+    0.01, // entrando na stack (evitando 0 pra não quebrar a matriz do framer)
+    0.01, // stack (escondido)
+    0.01, // saindo da stack
+    0.5,  // sobre
+    0.5   // contato
   ]);
   
-  // Opacity mapping to fully hide during Stack
+  // opacidade pra sumir com o avatar durante a stack
   const desktopOpacity = useTransform(smoothScrollY, offsets, [
     1, 1, 1, 1, 0, 0, 0, 1, 1
   ]);
   
-  // Numerical X offset mapping for calc() string injection
+  // deslocamento numérico no eixo x pra jogar no calc() do css
   const desktopXOffset = useTransform(smoothScrollY, offsets, [
-    0,    // Hero
-    15,   // Transit
-    30,   // Projects Parked (Right side)
-    30,   // Transit
-    0,    // Transit
-    0,    // Stack Parked (Mathematically centered)
-    -15,  // Transit
-    -35,  // About Parked (Left side)
-    -35   // Contact
+    0,    // hero
+    15,   // transição
+    30,   // projetos (fica na direita)
+    30,   // transição
+    0,    // transição
+    0,    // stack (meio da tela matematicamente)
+    -15,  // transição
+    -35,  // sobre (fica na esquerda)
+    -35   // contato
   ]);
   const desktopX = useTransform(desktopXOffset, v => `calc(-50% + ${v}vw)`);
   
-  // Y offset mapping (percentages of own height)
+  // deslocamento no eixo y (porcentagens baseadas na própria altura)
   const desktopY = useTransform(smoothScrollY, offsets, [
-    "-50%",   // Hero
-    "-65%",   // Transit
-    "-80%",   // Projects Parked
-    "-80%",   // Transit
-    "-65%",   // Transit
-    "-45%",   // Stack Parked (Slightly lowered to hit optical center)
-    "-35%",   // Transit
-    "-20%",   // About Parked
-    "-20%"    // Contact
+    "-50%",   // hero
+    "-65%",   // transição
+    "-80%",   // projetos
+    "-80%",   // transição
+    "-65%",   // transição
+    "-45%",   // stack (um pouco mais baixo pro centro ótico)
+    "-35%",   // transição
+    "-20%",   // sobre
+    "-20%"    // contato
   ]);
 
-  // Mobile mappings (mostly clamped to center to avoid horizontal overflow)
+  // animações no mobile (na maioria cravadas no meio pra não quebrar a barra de rolagem lateral)
   const mobileScale = useTransform(smoothScrollY, offsets, [
     0.8, 0.7, 0.5, 0.5, 0.01, 0.01, 0.01, 0.4, 0.4
   ]);
@@ -171,7 +171,7 @@ export default function AvatarStage() {
         <CentralAvatar size={300} section={currentSection} />
       </motion.div>
 
-      {/* Contextual section label — desktop only */}
+      {/* label contextual da seção (só no desktop) */}
       {!isMobile && (
         <AnimatePresence mode="wait">
           {label && (
@@ -189,7 +189,7 @@ export default function AvatarStage() {
         </AnimatePresence>
       )}
       
-      {/* Platform/Stage under the avatar */}
+      {/* plataforma/palco embaixo do avatar */}
       <motion.div 
         className="absolute -bottom-16 w-96 h-24 rounded-[100%] border border-violet-500/20 bg-violet-500/5 blur-md"
         style={{ 

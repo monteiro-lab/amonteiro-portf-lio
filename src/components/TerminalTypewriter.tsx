@@ -32,7 +32,7 @@ export default function TerminalTypewriter({ className = "" }: TerminalTypewrite
     return () => mq.removeEventListener("change", handler);
   }, []);
 
-  // Cursor blink
+  // faz o cursor piscar
   useEffect(() => {
     if (!mounted || reduceMotion) return;
     const blinkInterval = setInterval(() => {
@@ -41,7 +41,7 @@ export default function TerminalTypewriter({ className = "" }: TerminalTypewrite
     return () => clearInterval(blinkInterval);
   }, [mounted, reduceMotion]);
 
-  // Typewriter loop
+  // loop principal da animação de digitação
   useEffect(() => {
     if (!mounted || reduceMotion) return;
 
@@ -53,15 +53,15 @@ export default function TerminalTypewriter({ className = "" }: TerminalTypewrite
         if (charIndexRef.current < currentPhrase.length) {
           charIndexRef.current++;
           setDisplayText(currentPhrase.slice(0, charIndexRef.current));
-          // Slightly randomized typing speed for natural feel
+          // velocidade ligeiramente aleatória pra dar um toque mais humano
           timerRef.current = setTimeout(tick, 60 + Math.random() * 40);
         } else {
-          // Done typing — hold
+          // terminou de digitar, segura um pouquinho
           phaseRef.current = "holding";
           timerRef.current = setTimeout(tick, 1800);
         }
       } else if (phase === "holding") {
-        // Start deleting
+        // começa a apagar
         phaseRef.current = "deleting";
         timerRef.current = setTimeout(tick, 30);
       } else if (phase === "deleting") {
@@ -70,12 +70,12 @@ export default function TerminalTypewriter({ className = "" }: TerminalTypewrite
           setDisplayText(currentPhrase.slice(0, charIndexRef.current));
           timerRef.current = setTimeout(tick, 25 + Math.random() * 15);
         } else {
-          // Done deleting — pause before next phrase
+          // terminou de apagar, pausa antes da próxima frase
           phaseRef.current = "pausing";
           timerRef.current = setTimeout(tick, 600);
         }
       } else if (phase === "pausing") {
-        // Move to next phrase
+        // avança pra próxima frase
         phraseIndexRef.current = (phraseIndexRef.current + 1) % PHRASES.length;
         charIndexRef.current = 0;
         phaseRef.current = "typing";
@@ -83,7 +83,7 @@ export default function TerminalTypewriter({ className = "" }: TerminalTypewrite
       }
     };
 
-    // Start after a small delay
+    // começa depois de um pequeno delay
     timerRef.current = setTimeout(tick, 400);
 
     return () => {
@@ -93,7 +93,7 @@ export default function TerminalTypewriter({ className = "" }: TerminalTypewrite
 
   if (!mounted) return null;
 
-  // Reduced motion: show static text
+  // se o usuário prefere menos animações, mostra o texto estático
   if (reduceMotion) {
     return (
       <span className={className}>

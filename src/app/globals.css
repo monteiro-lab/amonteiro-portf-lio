@@ -121,7 +121,7 @@
   }
 }
 
-/* Animated grid background */
+/* Fundo animado com grid */
 @keyframes grid-pulse {
   0%,
   100% {
@@ -215,7 +215,7 @@
   animation: shimmer 3s linear infinite;
 }
 
-/* Reduce motion */
+/* Reduzir animações (acessibilidade) */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -231,10 +231,10 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* Custom Pixel Glitch Cursors                                                */
+/* Cursores personalizados em pixel glitch                                    */
 /* -------------------------------------------------------------------------- */
 
-/* Only apply custom cursors on devices with fine pointer (mouse) */
+/* Aplica os cursores apenas em dispositivos com mouse (não em touch) */
 @media (pointer: fine) and (hover: hover) {
   body, html {
     cursor: url('/cursors/default.svg') 4 4, auto;
@@ -252,13 +252,13 @@
     cursor: url('/cursors/active.svg') 4 6, pointer !important;
   }
   
-  /* Text inputs should retain standard text cursor for usability */
+  /* Inputs de texto devem manter o cursor padrão por usabilidade */
   input[type="text"], input[type="email"], input[type="password"], textarea {
     cursor: text !important;
   }
 }
 
-/* Explicitly disable custom cursors on touch devices */
+/* Desabilita explicitamente os cursores personalizados em telas touch */
 @media (hover: none) {
   body, html, a, button, [role="button"],
   input[type="submit"], input[type="button"],
@@ -268,7 +268,7 @@
 }
 
 /* -------------------------------------------------------------------------- */
-/* Modal UI States                                                            */
+/* Estados da UI em relação ao Modal                                          */
 /* -------------------------------------------------------------------------- */
 body.modal-open #main-navbar,
 body.modal-open #scroll-progress,

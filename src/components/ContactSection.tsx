@@ -14,7 +14,7 @@ export default function ContactSection() {
     e.preventDefault();
     setFormState("submitting");
     
-    // Simulate API call to Supabase / Backend
+    // simula uma chamada de API pro backend/supabase
     setTimeout(() => {
       setFormState("success");
     }, 1500);
@@ -23,7 +23,7 @@ export default function ContactSection() {
   return (
     <section id="contact" className="relative py-32 px-6 w-full">
       <div className="max-w-5xl mx-auto flex flex-col md:flex-row gap-16 items-start">
-        {/* Ambient glow */}
+        {/* brilho de fundo pra dar um clima */}
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
@@ -32,7 +32,7 @@ export default function ContactSection() {
           }}
         />
 
-        {/* Left Side: Contact Info */}
+        {/* lado esquerdo: informações de contato */}
         <div className="flex-1 text-left w-full">
           <SectionReveal>
             <p className="font-mono text-xs tracking-[0.3em] uppercase text-violet-400/80 mb-3">
@@ -74,7 +74,7 @@ export default function ContactSection() {
           </SectionReveal>
         </div>
 
-        {/* Right Side: Showcase Form */}
+        {/* lado direito: formulário de demonstração */}
         <div className="w-full md:w-[450px] flex-shrink-0">
           <SectionReveal delay={0.3}>
             <div className="glass-strong p-8 rounded-2xl relative overflow-hidden border border-white/10 shadow-2xl">

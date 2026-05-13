@@ -15,7 +15,7 @@ export type NodeType = {
 
 export type ParallelNode = NodeType & {
   position: "top" | "bottom";
-  leftOffset: string; // e.g., "14%"
+  leftOffset: string; // ex: "14%"
 };
 
 export type DiagramConfig = {
@@ -95,7 +95,7 @@ export default function ProjectDiagram({ projectId }: { projectId: string }) {
   const config = DIAGRAMS[projectId];
   
   if (!config) {
-    // Return placeholder if no specific diagram exists
+    // exibe um estado vazio se o projeto não tiver diagrama mapeado
     return (
       <div className="w-full h-48 rounded-xl border border-white/10 bg-black/40 flex items-center justify-center relative overflow-hidden group">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz48L3N2Zz4=')] opacity-50" />
@@ -116,10 +116,10 @@ export default function ProjectDiagram({ projectId }: { projectId: string }) {
         style={{ minWidth: `${containerWidth}px` }}
       >
         
-        {/* Background connecting line */}
+        {/* linha de fundo que conecta os nós */}
         <div className="absolute top-1/2 left-10 right-10 h-[2px] bg-white/10 -translate-y-1/2 z-0" />
         
-        {/* Animated flow line */}
+        {/* linha animada simulando o fluxo de dados */}
         <motion.div 
           className="absolute top-1/2 left-10 h-[2px] bg-gradient-to-r from-blue-500 via-violet-500 to-pink-500 -translate-y-1/2 z-0"
           initial={{ width: "0%" }}
@@ -127,7 +127,7 @@ export default function ProjectDiagram({ projectId }: { projectId: string }) {
           transition={{ duration: 2, ease: "easeInOut", delay: 0.5 }}
         />
 
-        {/* Main Nodes */}
+        {/* nós principais do diagrama */}
         {nodes.map((node, i) => {
           const Icon = Icons[node.icon as keyof typeof Icons] as React.ElementType || Icons.Box;
           return (
@@ -151,7 +151,7 @@ export default function ProjectDiagram({ projectId }: { projectId: string }) {
           );
         })}
 
-        {/* Parallel Nodes */}
+        {/* processos paralelos ou assíncronos */}
         {parallelNodes && parallelNodes.map((pNode, i) => {
           const Icon = Icons[pNode.icon as keyof typeof Icons] as React.ElementType || Icons.Box;
           const isTop = pNode.position === "top";
@@ -181,7 +181,7 @@ export default function ProjectDiagram({ projectId }: { projectId: string }) {
                 </span>
               )}
               
-              {/* Connector lines */}
+              {/* linha que liga o nó paralelo ao fluxo principal */}
               <div className={`absolute w-[1px] h-4 ${pNode.bg.replace('/10', '/30')} ${isTop ? "-bottom-4" : "-top-4"}`} />
             </motion.div>
           );

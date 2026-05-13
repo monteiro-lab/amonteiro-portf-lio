@@ -68,23 +68,23 @@ export default function CentralAvatar({
         transition: "transform 0.3s ease-out",
       }}
     >
-      {/* Background Glow */}
+      {/* brilho de fundo */}
       <div className="absolute inset-0 bg-violet-500/10 rounded-full blur-3xl animate-pulse-ring" />
 
-      {/* Floating Character Container */}
+      {/* contêiner animado do personagem */}
       <motion.div
         className="relative w-full h-full flex flex-col items-center justify-center z-10"
         animate={{ y: [0, -15, 0] }}
         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
       >
-        {/* Head/Visor Container */}
+        {/* estrutura da cabeça e visor */}
         <div className="relative w-[55%] h-[40%] bg-gradient-to-b from-gray-900 to-black rounded-t-[3rem] rounded-b-[2rem] border border-white/10 shadow-[0_0_30px_rgba(139,92,246,0.3)] overflow-hidden">
-          {/* Inner Visor Glow */}
+          {/* brilho interno do visor */}
           <div className="absolute inset-x-2 top-2 bottom-4 bg-gradient-to-b from-violet-900/40 to-blue-900/20 rounded-[2rem] border border-white/5 shadow-inner flex items-center justify-center overflow-hidden">
-            {/* Scanline */}
+            {/* efeito de scanline de monitor antigo */}
             <div className="absolute w-full h-full bg-[linear-gradient(transparent_50%,rgba(0,0,0,0.2)_50%)] bg-[length:100%_4px]" />
             
-            {/* Eyes — section-aware color */}
+            {/* olhos que mudam de cor conforme a seção atual do site */}
             <motion.div 
               className="relative w-full flex justify-center gap-6 z-10"
               animate={{ 
@@ -93,7 +93,7 @@ export default function CentralAvatar({
               }}
               transition={{ type: "spring", stiffness: 150, damping: 15 }}
             >
-              {/* Left Eye */}
+              {/* olho esquerdo */}
               <motion.div 
                 className="w-3.5 h-7 rounded-full"
                 style={{ 
@@ -104,7 +104,7 @@ export default function CentralAvatar({
                 animate={{ scaleY: [1, 0.1, 1, 1, 1, 1, 1, 1, 1] }}
                 transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
               />
-              {/* Right Eye */}
+              {/* olho direito */}
               <motion.div 
                 className="w-3.5 h-7 rounded-full"
                 style={{ 
@@ -118,12 +118,12 @@ export default function CentralAvatar({
             </motion.div>
           </div>
           
-          {/* Headphones/Ears */}
+          {/* orelhas/fones */}
           <div className="absolute -left-1 top-1/2 -translate-y-1/2 w-3 h-10 bg-gray-800 rounded-l-lg border border-white/10 shadow-[0_0_10px_rgba(0,0,0,0.5)]" />
           <div className="absolute -right-1 top-1/2 -translate-y-1/2 w-3 h-10 bg-gray-800 rounded-r-lg border border-white/10 shadow-[0_0_10px_rgba(0,0,0,0.5)]" />
         </div>
 
-        {/* Neck/Core Connection */}
+        {/* pescoço interligando a cabeça ao corpo */}
         <motion.div 
           className="w-6 h-8 flex flex-col justify-between py-1.5 my-1"
           animate={{ height: [32, 36, 32] }}
@@ -134,9 +134,9 @@ export default function CentralAvatar({
           <div className="w-full h-1 bg-cyan-500/80 rounded-full shadow-[0_0_10px_rgba(6,182,212,0.8)]" />
         </motion.div>
 
-        {/* Body/Core — section-aware color */}
+        {/* corpo/núcleo - também muda de cor com a seção */}
         <div className="relative w-[45%] h-[20%] bg-gradient-to-b from-gray-800 to-black rounded-[2rem] border border-white/10 flex items-center justify-center shadow-[0_10px_30px_rgba(0,0,0,0.5)]">
-           {/* Inner Core */}
+           {/* luz interna do núcleo */}
            <motion.div 
               className="w-6 h-6 rounded-full flex items-center justify-center"
               style={{
@@ -151,7 +151,7 @@ export default function CentralAvatar({
            </motion.div>
         </div>
         
-        {/* Floating Aura Base */}
+        {/* aura na base do avatar pra dar noção de profundidade */}
         <motion.div 
           className="absolute -bottom-8 w-[60%] h-4 bg-violet-500/30 blur-xl rounded-[100%]"
           animate={{ scale: [1, 0.7, 1], opacity: [0.6, 0.2, 0.6] }}
@@ -159,7 +159,7 @@ export default function CentralAvatar({
         />
       </motion.div>
 
-      {/* Orbiting Decor (Holographic Rings) */}
+      {/* anéis holográficos orbitando */}
       <div className="absolute inset-0 pointer-events-none" style={{ transformStyle: "preserve-3d", transform: "rotateX(60deg)" }}>
         <motion.div 
           className="absolute inset-[-10%] border-2 border-violet-500/20 rounded-full border-dashed"
@@ -171,12 +171,12 @@ export default function CentralAvatar({
           animate={{ rotateZ: -360 }}
           transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
         >
-           {/* Orbiting node */}
+           {/* ponto orbitando o anel menor */}
            <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3 h-3 bg-cyan-400 rounded-full shadow-[0_0_10px_rgba(6,182,212,0.8)]" />
         </motion.div>
       </div>
 
-      {/* Floating Hands */}
+      {/* mãos flutuantes soltas do corpo */}
       <motion.div 
         className="absolute z-20 w-8 h-8 bg-gray-800 border-2 border-violet-500/50 rounded-full shadow-[0_0_15px_rgba(139,92,246,0.6)]"
         style={{ left: "15%", top: "60%" }}

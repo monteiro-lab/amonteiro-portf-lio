@@ -43,7 +43,7 @@ export default function Navbar() {
               : "bg-transparent"
           }`}
         >
-          {/* Logo */}
+          {/* logo */}
           <a href="#" className="flex items-center gap-2 group">
             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-violet-600 to-blue-600 flex items-center justify-center text-white font-bold text-sm group-hover:shadow-lg group-hover:shadow-violet-500/20 transition-shadow">
               AM
@@ -53,7 +53,7 @@ export default function Navbar() {
             </span>
           </a>
 
-          {/* Desktop nav */}
+          {/* navegação no desktop */}
           <div className="hidden md:flex items-center gap-1">
             {navItems.map((item) => {
               const section = item.href.replace("#", "");
@@ -90,7 +90,7 @@ export default function Navbar() {
             })}
           </div>
 
-          {/* Mobile hamburger */}
+          {/* menu hamburguer no mobile */}
           <button
             className="md:hidden flex flex-col gap-1.5 p-2 cursor-pointer"
             onClick={() => setMobileOpen(!mobileOpen)}
@@ -115,7 +115,7 @@ export default function Navbar() {
         </div>
       </motion.nav>
 
-      {/* Mobile menu */}
+      {/* menu aberto no mobile */}
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
@@ -152,7 +152,7 @@ export default function Navbar() {
         )}
       </AnimatePresence>
 
-      {/* Scroll progress bar */}
+      {/* barra de progresso do scroll */}
       <ScrollProgress />
     </>
   );

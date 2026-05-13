@@ -20,10 +20,10 @@ export default function Home() {
 
   return (
     <>
-      {/* Intro Gate */}
+      {/* Tela de abertura */}
       {!entered && <IntroGate onEnter={() => setEntered(true)} />}
 
-      {/* Main Portfolio */}
+      {/* Portfólio Principal */}
       <AnimatePresence>
         {entered && (
           <motion.div

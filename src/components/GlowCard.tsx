@@ -11,7 +11,7 @@ interface GlowCardProps {
   index: number;
 }
 
-// Map categories to accent colors for visual identity
+// mapa de cores por categoria pra dar uma identidade visual
 const CATEGORY_COLORS: Record<string, string> = {
   "Data & Finance": "#3b82f6",
   "AI & Automation": "#8b5cf6",
@@ -36,7 +36,7 @@ export default function GlowCard({ project, index }: GlowCardProps) {
     card.style.setProperty("--mouse-y", `${y}px`);
   };
 
-  // Dynamically resolve the Lucide icon
+  // carrega o ícone do lucide dinamicamente
   const IconComponent = Icons[project.icon as keyof typeof Icons] as React.ElementType;
 
   const maxVisibleTech = 4;
@@ -54,7 +54,7 @@ export default function GlowCard({ project, index }: GlowCardProps) {
       transition={{ duration: 0.7, delay: index * 0.08, type: "spring", damping: 25, stiffness: 200 }}
       whileHover={{ y: -3 }}
     >
-      {/* Glow effect on hover */}
+      {/* efeito de brilho que acompanha o mouse no hover */}
       <div
         className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-2xl"
         style={{
@@ -63,9 +63,9 @@ export default function GlowCard({ project, index }: GlowCardProps) {
         }}
       />
 
-      {/* Card content */}
+      {/* conteúdo do card */}
       <div className="relative glass rounded-2xl h-full flex flex-col group-hover:border-violet-500/20 transition-colors duration-500 overflow-hidden">
-        {/* Top accent gradient stripe */}
+        {/* linha colorida no topo do card */}
         <div
           className="h-[2px] w-full"
           style={{
@@ -74,10 +74,10 @@ export default function GlowCard({ project, index }: GlowCardProps) {
         />
 
         <div className="p-6 md:p-8 flex flex-col flex-1">
-          {/* Header */}
+          {/* cabeçalho */}
           <div className="flex items-start justify-between mb-5">
             <div className="flex items-center gap-3">
-              {/* Icon pill with category color */}
+              {/* ícone com a cor da categoria */}
               <div
                 className="w-10 h-10 rounded-xl flex items-center justify-center transition-colors duration-300 flex-shrink-0"
                 style={{
@@ -103,12 +103,12 @@ export default function GlowCard({ project, index }: GlowCardProps) {
             </div>
           </div>
 
-          {/* Description */}
+          {/* descrição */}
           <p className="text-text-secondary text-sm leading-relaxed mb-4 flex-1">
             {project.description}
           </p>
 
-          {/* Metrics Highlight */}
+          {/* destaque pra métricas */}
           {project.metrics && (
             <div className="mb-5 bg-violet-500/10 border border-violet-500/20 rounded-lg p-3">
               <p className="text-xs font-mono text-violet-300 flex items-center gap-2">
@@ -118,7 +118,7 @@ export default function GlowCard({ project, index }: GlowCardProps) {
             </div>
           )}
 
-          {/* Tech stack badges */}
+          {/* tags das tecnologias usadas */}
           <div className="flex flex-wrap gap-1.5 mb-5">
             {visibleTech.map((tech) => (
               <span
@@ -135,7 +135,7 @@ export default function GlowCard({ project, index }: GlowCardProps) {
             )}
           </div>
 
-          {/* Footer */}
+          {/* rodapé */}
           <div className="flex items-center justify-between pt-4 border-t border-white/[0.04]">
             <a
               href={project.github}
@@ -144,12 +144,12 @@ export default function GlowCard({ project, index }: GlowCardProps) {
               className="flex items-center gap-2 text-xs text-text-muted hover:text-violet-400 transition-colors font-mono group/link"
             >
               <ExternalLink className="w-3 h-3 group-hover/link:translate-x-0.5 transition-transform duration-200" />
-              View Source
+              Ver Código
             </a>
             {project.featured && (
               <span className="flex items-center gap-1.5 text-[11px] font-mono text-emerald-400/70">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                Featured
+                Destaque
               </span>
             )}
           </div>

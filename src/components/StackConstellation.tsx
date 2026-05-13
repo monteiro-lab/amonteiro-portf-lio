@@ -11,9 +11,9 @@ export default function StackConstellation() {
 
   return (
     <section id="stack" className="relative py-32 px-6 w-full min-h-screen flex items-center overflow-hidden bg-[#05050a]">
-      {/* Abstract Animated Background */}
+      {/* fundo animado abstrato */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
-        {/* Local Video Background */}
+        {/* vídeo de background local */}
         <video 
           autoPlay 
           loop 
@@ -24,16 +24,16 @@ export default function StackConstellation() {
           <source src="/video/techstack-bg.webm" type="video/webm" />
         </video>
 
-        {/* Atmospheric Vignette and Readability Overlays */}
+        {/* overlays de vignette pra garantir a leitura do texto por cima do vídeo */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0f] via-transparent to-[#0a0a0f] opacity-90" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0f] via-transparent to-[#0a0a0f] opacity-80" />
         <div className="absolute inset-0 bg-black/40 backdrop-blur-[1px]" />
 
-        {/* Slow moving radial glows to integrate the video color with the palette */}
+        {/* brilhos radiais bem lentos pra harmonizar as cores do vídeo com a paleta do site */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-violet-900/10 rounded-full blur-[100px] animate-pulse mix-blend-screen" style={{ animationDuration: '8s' }} />
         <div className="absolute top-1/2 left-[40%] -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-cyan-900/10 rounded-full blur-[100px] animate-pulse mix-blend-screen" style={{ animationDuration: '12s', animationDelay: '2s' }} />
         
-        {/* Subtle grid lines to ground the tech theme */}
+        {/* grid sutil pra dar aquele ar tecnológico */}
         <div 
           className="absolute inset-0 opacity-[0.02]" 
           style={{ 
@@ -44,11 +44,11 @@ export default function StackConstellation() {
       </div>
 
       <div className="max-w-6xl mx-auto w-full relative z-10">
-        {/* Section header */}
+        {/* cabeçalho da seção */}
         <SectionReveal>
           <div className="text-center mb-16">
             <p className="font-mono text-xs tracking-[0.3em] uppercase text-cyan-400/80 mb-3 drop-shadow-md">
-              // Tools
+              // ferramentas
             </p>
             <h2 className="text-4xl md:text-5xl font-bold mb-4 drop-shadow-lg">
               <span className="text-gradient">Tech Stack</span>
@@ -59,7 +59,7 @@ export default function StackConstellation() {
           </div>
         </SectionReveal>
 
-        {/* Category tabs */}
+        {/* abas de categoria */}
         <SectionReveal delay={0.1}>
           <div className="flex flex-wrap justify-center gap-2 mb-12">
             {techStack.map((cat, i) => (
@@ -91,7 +91,7 @@ export default function StackConstellation() {
           </div>
         </SectionReveal>
 
-        {/* Display — Responsive Grid */}
+        {/* grid responsivo exibindo os cards de tecnologia */}
         <SectionReveal delay={0.2}>
           <div className="min-h-[400px]">
             <AnimatePresence mode="wait">
@@ -121,7 +121,7 @@ export default function StackConstellation() {
                       transition={{ delay: i * 0.05, duration: 0.3 }}
                       whileHover={{ scale: 1.02, y: -4 }}
                     >
-                      {/* Hover glow background */}
+                      {/* brilho de fundo no hover */}
                       <div 
                         className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
                         style={{
@@ -129,7 +129,7 @@ export default function StackConstellation() {
                         }}
                       />
                       
-                      {/* Hover border glow */}
+                      {/* brilho nas bordas no hover */}
                       <div 
                         className="absolute inset-0 rounded-2xl border opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
                         style={{
@@ -138,7 +138,7 @@ export default function StackConstellation() {
                         }}
                       />
 
-                      {/* Icon */}
+                      {/* ícone da tecnologia */}
                       <div className="relative z-10 w-12 h-12 flex items-center justify-center transition-transform duration-300 group-hover:-translate-y-1">
                         {item.iconUrl ? (
                           <img
@@ -153,7 +153,7 @@ export default function StackConstellation() {
                         )}
                       </div>
 
-                      {/* Label */}
+                      {/* nome da tecnologia */}
                       <span
                         className="relative z-10 font-mono text-sm tracking-wide transition-colors duration-300 text-text-muted group-hover:text-white text-center drop-shadow-md"
                       >

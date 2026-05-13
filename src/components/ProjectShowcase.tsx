@@ -18,11 +18,11 @@ export default function ProjectShowcase() {
   return (
     <section id="projects" className="relative py-32 px-6 w-full">
       <div className="max-w-6xl mx-auto">
-        {/* Section header */}
+        {/* cabeçalho da seção */}
         <SectionReveal>
           <div className="text-center mb-16">
             <p className="font-mono text-xs tracking-[0.3em] uppercase text-violet-400/80 mb-3">
-              // Projects
+              // projetos
             </p>
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
               <span className="text-gradient">Selected Work</span>
@@ -33,9 +33,9 @@ export default function ProjectShowcase() {
           </div>
         </SectionReveal>
 
-        {/* Project progressive floating layout - left-aligned to frame the avatar on the right */}
+        {/* layout dos projetos alinhado à esquerda pra dar espaço pro avatar na direita */}
         <div className="relative mt-16 z-10 w-full max-w-3xl mr-auto pl-4 md:pl-12">
-          {/* Vertical continuous scroll rail */}
+          {/* trilho vertical pra dar aquele efeito de timeline contínua */}
           <div className="absolute left-0 top-0 bottom-0 w-px bg-gradient-to-b from-violet-500/0 via-violet-500/20 to-blue-500/0" />
           
           <div className="flex flex-col gap-12 md:gap-20">
@@ -44,7 +44,7 @@ export default function ProjectShowcase() {
                 key={project.id} 
                 className="w-full relative"
               >
-                {/* Connection node to the scroll rail */}
+                {/* pontinho que conecta o card ao trilho */}
                 <div className="absolute top-8 -left-4 md:-left-12 w-8 md:w-12 h-px bg-violet-500/20">
                   <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 w-2 h-2 rounded-full border border-violet-500 bg-bg-primary" />
                 </div>
@@ -56,7 +56,7 @@ export default function ProjectShowcase() {
           </div>
         </div>
 
-        {/* Show more */}
+        {/* botão pra carregar mais projetos */}
         {!showAll && others.length > 0 && (
           <SectionReveal>
             <div className="text-center mt-12">

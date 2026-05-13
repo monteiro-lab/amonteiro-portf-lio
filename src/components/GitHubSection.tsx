@@ -16,7 +16,7 @@ export default function GitHubSection() {
         <SectionReveal>
           <div className="text-center mb-16">
             <p className="font-mono text-xs tracking-[0.3em] uppercase text-emerald-400/80 mb-3">
-              // Open Source
+              // código aberto
             </p>
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
               <span className="text-gradient">Source Code</span>
@@ -27,10 +27,10 @@ export default function GitHubSection() {
           </div>
         </SectionReveal>
 
-        {/* Terminal-style card */}
+        {/* card com estilo de terminal */}
         <SectionReveal delay={0.1}>
           <div className="glass rounded-2xl overflow-hidden">
-            {/* Terminal header */}
+            {/* barra superior do terminal com os botões */}
             <div className="flex items-center gap-2 px-5 py-3 border-b border-white/[0.04]">
               <div className="w-3 h-3 rounded-full bg-red-500/60" />
               <div className="w-3 h-3 rounded-full bg-yellow-500/60" />
@@ -40,7 +40,7 @@ export default function GitHubSection() {
               </span>
             </div>
 
-            {/* Terminal body */}
+            {/* área de texto do terminal */}
             <div className="p-6 md:p-8 font-mono text-sm space-y-4">
               <div>
                 <span className="text-emerald-400">$</span>
@@ -49,7 +49,7 @@ export default function GitHubSection() {
                 </span>
               </div>
 
-              {/* Repos list */}
+              {/* listagem dos repositórios */}
               <div className="space-y-3 ml-2">
                 {pinned.map((project, i) => (
                   <motion.a
@@ -97,7 +97,7 @@ export default function GitHubSection() {
           </div>
         </SectionReveal>
 
-        {/* CTA */}
+        {/* botão principal */}
         <SectionReveal delay={0.2}>
           <div className="text-center mt-10">
             <MagneticButton

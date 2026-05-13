@@ -34,7 +34,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
   return (
     <AnimatePresence>
       <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-6">
-        {/* Backdrop */}
+        {/* fundo escurecido do modal */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -43,14 +43,14 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           className="absolute inset-0 bg-bg-primary/90 backdrop-blur-md"
         />
 
-        {/* Modal Container */}
+        {/* contêiner principal do modal */}
         <motion.div
           initial={{ opacity: 0, y: 30, scale: 0.95 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           exit={{ opacity: 0, y: 20, scale: 0.95 }}
           className="relative w-full max-w-4xl max-h-[90vh] glass-strong rounded-2xl overflow-y-auto border border-white/10 shadow-2xl"
         >
-          {/* Close button */}
+          {/* botão de fechar */}
           <button
             onClick={onClose}
             className="absolute top-4 right-4 p-2 rounded-full bg-white/5 hover:bg-white/10 text-text-secondary hover:text-white transition-colors z-10"
@@ -59,7 +59,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           </button>
 
           <div className="p-6 md:p-10">
-            {/* Header */}
+            {/* cabeçalho */}
             <div className="flex items-center gap-4 mb-6">
               <div className="w-14 h-14 rounded-xl flex items-center justify-center bg-violet-500/10 border border-violet-500/30 text-violet-400">
                 {IconComponent ? <IconComponent size={28} /> : <Icons.Folder size={28} />}
@@ -72,7 +72,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
               </div>
             </div>
 
-            {/* Metrics */}
+            {/* métricas de impacto */}
             {project.metrics && (
               <div className="mb-8 p-4 bg-gradient-to-r from-violet-500/10 to-transparent border-l-4 border-violet-500 rounded-r-lg">
                 <p className="text-lg text-white font-medium flex items-center gap-2">
@@ -82,9 +82,9 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
               </div>
             )}
 
-            {/* Content Grid */}
+            {/* grid de conteúdo */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {/* Main Column */}
+              {/* coluna principal */}
               <div className="md:col-span-2 space-y-8">
                 <section>
                   <h3 className="text-xl font-semibold text-white mb-3 flex items-center gap-2">
@@ -104,12 +104,12 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                   <p className="text-text-secondary leading-relaxed mb-6">
                     Para resolver o desafio de forma escalável, projetei um ecossistema focado em performance e resiliência, utilizando as melhores práticas para desenvolvimento backend. A comunicação de dados é otimizada para respostas rápidas.
                   </p>
-                  {/* Architecture Diagram */}
+                  {/* diagrama de arquitetura */}
                   <ProjectDiagram projectId={project.id} />
                 </section>
               </div>
 
-              {/* Sidebar */}
+              {/* barra lateral */}
               <div className="space-y-8">
                 <section>
                   <h3 className="text-sm font-mono text-text-muted uppercase tracking-wider mb-4">
