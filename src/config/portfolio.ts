@@ -258,7 +258,7 @@ export const techStack: TechCategory[] = [
 
 export const journeyMilestones = [
   {
-    phase: "Foundation",
+    phase: "Fundação",
     title: "Primeiros Sistemas Full-Stack",
     description:
       "Construí aplicações web base e aprendi a conectar interfaces frontend a backends em Python.",
@@ -266,7 +266,7 @@ export const journeyMilestones = [
     icon: "Hammer",
   },
   {
-    phase: "Data Era",
+    phase: "Era dos Dados",
     title: "Dashboards & Ferramentas de Dados",
     description:
       "Desenvolvi aplicações guiadas por dados, dashboards interativos e sistemas de análise financeira.",
@@ -274,7 +274,7 @@ export const journeyMilestones = [
     icon: "BarChart2",
   },
   {
-    phase: "AI Integration",
+    phase: "Integração de IA",
     title: "Aplicações com IA",
     description:
       "Integrei IA e LangChain em aplicações de produção para desenvolver agentes inteligentes de agendamento e recomendação.",
@@ -282,7 +282,7 @@ export const journeyMilestones = [
     icon: "Bot",
   },
   {
-    phase: "Enterprise Scale",
+    phase: "Escala Corporativa",
     title: "Sistemas em Nuvem & Contêineres",
     description:
       "Projetei sistemas robustos de nível corporativo com Docker, Supabase e arquitetura nativa em nuvem para organizações reais.",
@@ -290,7 +290,7 @@ export const journeyMilestones = [
     icon: "Cloud",
   },
   {
-    phase: "Current",
+    phase: "Atual",
     title: "Ecossistemas Web Inteligentes",
     description:
       "Combinando desenvolvimento full-stack, IA, automação e infraestrutura em nuvem para criar soluções digitais completas.",
@@ -300,12 +300,12 @@ export const journeyMilestones = [
 ];
 
 export const navItems = [
-  { label: "Projects", href: "#projects" },
-  { label: "Stack", href: "#stack" },
-  { label: "About", href: "#about" },
-  { label: "Journey", href: "#journey" },
+  { label: "Projetos", href: "#projects" },
+  { label: "Tecnologias", href: "#stack" },
+  { label: "Sobre", href: "#about" },
+  { label: "Jornada", href: "#journey" },
   { label: "GitHub", href: "#github" },
-  { label: "Contact", href: "#contact" },
+  { label: "Contato", href: "#contact" },
 ];
 
 export const ctaFinal = {

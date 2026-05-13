@@ -66,7 +66,7 @@ export default function AnimatedBackground() {
         ctx.fill();
       }
 
-      // Draw connections — reduced distance threshold
+      // desenha as conexões entre as partículas com base na distância
       const connectionDist = isMobile ? 80 : 100;
       for (let i = 0; i < activeCount; i++) {
         for (let j = i + 1; j < activeCount; j++) {
@@ -111,7 +111,7 @@ export default function AnimatedBackground() {
         className="fixed inset-0 pointer-events-none z-0"
         style={{ opacity: 0.35 }}
       />
-      {/* Grid overlay — subtler */}
+      {/* grid sutil no fundo */}
       <div
         className="fixed inset-0 pointer-events-none z-0"
         style={{
@@ -123,7 +123,7 @@ export default function AnimatedBackground() {
           animation: "grid-pulse 8s ease-in-out infinite",
         }}
       />
-      {/* Radial spotlight — subtler */}
+      {/* iluminação radial suave */}
       <div
         className="fixed inset-0 pointer-events-none z-0"
         style={{

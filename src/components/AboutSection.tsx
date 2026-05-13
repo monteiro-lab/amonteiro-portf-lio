@@ -11,7 +11,7 @@ export default function AboutSection() {
         <SectionReveal>
           <div className="text-left mb-12">
             <p className="font-mono text-xs tracking-[0.3em] uppercase text-emerald-400/80 mb-3">
-              // Identity
+              // identidade
             </p>
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
               <span className="text-gradient">About Me</span>
@@ -21,7 +21,7 @@ export default function AboutSection() {
 
         <SectionReveal delay={0.1}>
           <div className="glass rounded-2xl p-8 md:p-12 relative overflow-hidden">
-            {/* Accent gradient */}
+            {/* gradiente de destaque */}
             <div
               className="absolute top-0 right-0 w-64 h-64 pointer-events-none"
               style={{
@@ -33,12 +33,12 @@ export default function AboutSection() {
             <div className="relative z-10 space-y-8">
               <div className="flex flex-col sm:flex-row gap-6 md:gap-8 items-start">
                 <div className="relative shrink-0 group cursor-default">
-                  {/* Subtle outer glow */}
+                  {/* brilho externo sutil */}
                   <div className="absolute inset-0 rounded-2xl bg-violet-500/10 blur-xl group-hover:bg-violet-500/20 transition-colors duration-500" />
                   
-                  {/* Profile Chip */}
+                  {/* mini foto de perfil */}
                   <div className="relative w-16 h-16 md:w-20 md:h-20 rounded-2xl overflow-hidden border border-white/10 bg-[#0a0a0f] shadow-[0_4px_20px_rgba(0,0,0,0.5)]">
-                    {/* Glass glare */}
+                    {/* reflexo de vidro */}
                     <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-transparent z-20 pointer-events-none" />
                     
                     <Image 
@@ -59,7 +59,7 @@ export default function AboutSection() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6 border-t border-white/[0.04]">
                 <div className="space-y-2">
                   <p className="font-mono text-xs text-violet-400/80 uppercase tracking-wider">
-                    Core Focus
+                    Foco Principal
                   </p>
                   <p className="text-text-secondary text-sm">
                     Aplicações web full-stack com backends em Python, frontends
@@ -68,7 +68,7 @@ export default function AboutSection() {
                 </div>
                 <div className="space-y-2">
                   <p className="font-mono text-xs text-blue-400/80 uppercase tracking-wider">
-                    Approach
+                    Abordagem
                   </p>
                   <p className="text-text-secondary text-sm">
                     Entregar sistemas reais que resolvem problemas reais. Todo projeto
@@ -77,7 +77,7 @@ export default function AboutSection() {
                 </div>
                 <div className="space-y-2">
                   <p className="font-mono text-xs text-cyan-400/80 uppercase tracking-wider">
-                    Current Direction
+                    Direção Atual
                   </p>
                   <p className="text-text-secondary text-sm">
                     Integrar capacidades de IA em fluxos de trabalho existentes:
@@ -87,7 +87,7 @@ export default function AboutSection() {
                 </div>
               </div>
 
-              {/* Terminal-style quote */}
+              {/* citação com estilo de terminal */}
               <div className="mt-8 p-4 rounded-lg bg-black/30 border border-white/[0.04] font-mono text-sm">
                 <span className="text-emerald-400">arthur@lab</span>
                 <span className="text-text-muted">:</span>

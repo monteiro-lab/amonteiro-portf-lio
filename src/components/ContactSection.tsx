@@ -36,7 +36,7 @@ export default function ContactSection() {
         <div className="flex-1 text-left w-full">
           <SectionReveal>
             <p className="font-mono text-xs tracking-[0.3em] uppercase text-violet-400/80 mb-3">
-              // Contact
+              // contato
             </p>
             <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
               <span className="text-gradient">{ctaFinal.headline}</span>
