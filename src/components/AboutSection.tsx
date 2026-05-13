@@ -80,7 +80,7 @@ export default function AboutSection() {
                     Current Direction
                   </p>
                   <p className="text-text-secondary text-sm">
-                    Integrar capacidades de IA em fluxos de trabalho existentes —
+                    Integrar capacidades de IA em fluxos de trabalho existentes:
                     LangChain, pipelines de automação e sistemas de agendamento
                     inteligente.
                   </p>

@@ -112,7 +112,7 @@ export default function JourneySection() {
               <span className="text-gradient">Evolution</span>
             </h2>
             <p className="text-text-secondary max-w-xl mx-auto">
-              Desde os primeiros projetos full-stack até sistemas de IA em contêineres — cada fase moldada por problemas do mundo real.
+              Desde os primeiros projetos full-stack até sistemas de IA em contêineres, cada fase moldada por problemas do mundo real.
             </p>
           </div>
         </SectionReveal>

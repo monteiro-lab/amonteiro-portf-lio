@@ -53,7 +53,7 @@ export const projects: Project[] = [
     id: "ouvidoria-mg",
     name: "Ouvidoria MG",
     description:
-      "Sistema interno de ouvidoria para departamentos de RH — construído com Flask, Supabase e Docker.",
+      "Sistema interno de ouvidoria para departamentos de RH: construído com Flask, Supabase e Docker.",
     longDescription:
       "Um sistema full-stack completo de gerenciamento de feedback e ouvidoria interna projetado para departamentos de recursos humanos. Apresenta tratamento seguro de dados, acesso baseado em funções e deploy através de contêineres.",
     tech: ["Flask", "Supabase", "Docker", "HTML/CSS"],
@@ -304,5 +304,5 @@ export const navItems = [
 export const ctaFinal = {
   headline: "Vamos construir algo que realmente funcione.",
   subline:
-    "De pipelines de dados e integrações com IA até plataformas web de nível de produção — aberto para colaborações.",
+    "De pipelines de dados e integrações com IA até plataformas web de nível de produção, aberto para colaborações.",
 };

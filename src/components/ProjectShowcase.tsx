@@ -25,7 +25,7 @@ export default function ProjectShowcase() {
               <span className="text-gradient">Selected Work</span>
             </h2>
             <p className="text-text-secondary max-w-lg mx-auto">
-              Sistemas reais construídos para uso real — acompanhamento financeiro, agendamento por IA, plataformas governamentais e ferramentas de dados.
+              Sistemas reais construídos para uso real: acompanhamento financeiro, agendamento por IA, plataformas governamentais e ferramentas de dados.
             </p>
           </div>
         </SectionReveal>
