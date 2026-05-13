@@ -8,16 +8,39 @@ import MagneticButton from "./MagneticButton";
 import { identity, ctaFinal } from "@/config/portfolio";
 
 export default function ContactSection() {
-  const [formState, setFormState] = useState<"idle" | "submitting" | "success">("idle");
+  const [formState, setFormState] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [errorMsg, setErrorMsg] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setFormState("submitting");
-    
-    // simula uma chamada de API pro backend/supabase
-    setTimeout(() => {
+    setErrorMsg("");
+
+    const formData = new FormData(e.currentTarget);
+    const payload = {
+      name: formData.get("name") as string,
+      email: formData.get("email") as string,
+      message: formData.get("message") as string,
+    };
+
+    try {
+      // envia os dados pra api route serverless
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (!res.ok) {
+        const data = await res.json();
+        throw new Error(data.error || "Erro ao enviar mensagem.");
+      }
+
       setFormState("success");
-    }, 1500);
+    } catch (err) {
+      setErrorMsg(err instanceof Error ? err.message : "Erro inesperado.");
+      setFormState("error");
+    }
   };
 
   return (
@@ -110,6 +133,7 @@ export default function ContactSection() {
                     <input 
                       type="text" 
                       id="name" 
+                      name="name"
                       required
                       placeholder="Seu nome"
                       className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-violet-500/50 focus:ring-1 focus:ring-violet-500/50 transition-all placeholder:text-white/20"
@@ -121,6 +145,7 @@ export default function ContactSection() {
                     <input 
                       type="email" 
                       id="email" 
+                      name="email"
                       required
                       placeholder="seu@email.com"
                       className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 text-white text-sm focus:outline-none focus:border-violet-500/50 focus:ring-1 focus:ring-violet-500/50 transition-all placeholder:text-white/20"
@@ -131,6 +156,7 @@ export default function ContactSection() {
                     <label htmlFor="message" className="text-xs font-mono text-text-muted uppercase tracking-wider">Mensagem</label>
                     <textarea 
                       id="message" 
+                      name="message"
                       required
                       rows={4}
                       placeholder="Como posso te ajudar?"
@@ -153,9 +179,16 @@ export default function ContactSection() {
                     )}
                   </button>
 
+                  {/* feedback de erro */}
+                  {formState === "error" && (
+                    <div className="p-3 rounded-lg bg-red-500/10 border border-red-500/20 text-red-400 text-xs font-mono">
+                      ⚠ {errorMsg}
+                    </div>
+                  )}
+
                   <div className="mt-4 pt-4 border-t border-white/5 flex items-center justify-center gap-2 text-[10px] text-text-muted font-mono uppercase">
                     <Database size={12} className="text-violet-400" />
-                    Simulação: Form → API Serverless → Supabase
+                    Form → API Serverless → Supabase
                   </div>
                 </form>
               )}
