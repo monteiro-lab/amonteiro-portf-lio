@@ -131,7 +131,7 @@ export default function IntroGate({ onEnter }: IntroGateProps) {
 
           {/* Layer 5-7: Content (Avatar, Text, Button) */}
           <motion.div
-            className="relative z-10 flex flex-col items-center gap-8 px-6"
+            className="relative z-10 flex flex-col items-center w-full max-w-5xl gap-8 px-6"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.3 }}
@@ -152,7 +152,7 @@ export default function IntroGate({ onEnter }: IntroGateProps) {
             </motion.div>
 
             {/* Identity */}
-            <div className="text-center space-y-3">
+            <div className="text-center flex flex-col items-center w-full space-y-3">
               <motion.div
                 className="font-mono text-sm tracking-[0.3em] uppercase text-violet-400/80 h-[1.4em]"
                 initial={{ opacity: 0 }}
