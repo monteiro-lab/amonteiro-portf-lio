@@ -181,7 +181,7 @@ export default function IntroGate({ onEnter }: IntroGateProps) {
 
             {/* Hover to Enter Button */}
             <motion.div
-              className="relative mt-4"
+              className="relative mt-4 flex flex-col items-center"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 1.5 }}
