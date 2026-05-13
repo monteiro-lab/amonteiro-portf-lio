@@ -15,8 +15,8 @@ export default function Footer() {
           </span>
         </div>
         <p className="font-mono text-xs text-text-muted">
-          Construído com Next.js + TypeScript. Hospedado na{" "}
-          <span className="text-violet-400/60">Vercel</span>.
+          Developed by{" "}
+          <span className="text-violet-400/60">{identity.name}</span>
         </p>
         <div className="font-mono text-xs text-text-muted">
           © {new Date().getFullYear()}
