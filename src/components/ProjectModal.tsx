@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import * as Icons from "lucide-react";
 import { GithubIcon } from "./icons";
 import type { Project } from "@/config/portfolio";
-import DolarTrackerDiagram from "./DolarTrackerDiagram";
+import ProjectDiagram from "./ProjectDiagrams";
 
 interface ProjectModalProps {
   project: Project | null;
@@ -101,19 +101,11 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                     <Icons.Wrench className="text-violet-400" size={18} />
                     Solução Arquitetural
                   </h3>
-                  <p className="text-text-secondary leading-relaxed mb-4">
+                  <p className="text-text-secondary leading-relaxed mb-6">
                     Para resolver o desafio de forma escalável, projetei um ecossistema focado em performance e resiliência, utilizando as melhores práticas para desenvolvimento backend. A comunicação de dados é otimizada para respostas rápidas.
                   </p>
-                  
                   {/* Architecture Diagram */}
-                  {project.id === "dolar-tracker" ? (
-                    <DolarTrackerDiagram />
-                  ) : (
-                    <div className="w-full h-48 rounded-xl border border-white/10 bg-black/40 flex items-center justify-center relative overflow-hidden group">
-                      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMSIgY3k9IjEiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz48L3N2Zz4=')] opacity-50" />
-                      <p className="text-text-muted font-mono text-sm z-10">Diagrama de Arquitetura.png</p>
-                    </div>
-                  )}
+                  <ProjectDiagram projectId={project.id} />
                 </section>
               </div>
 
